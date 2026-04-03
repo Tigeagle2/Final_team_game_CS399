@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfa3sdwffdgfm"]
+
+[ext_resource type="Script" uid="uid://fvlqjy5bwvan" path="res://scripts/ui_scripts/fight_ui_scripts/fight_screen_ui.gd" id="1_m417t"]
+[ext_resource type="PackedScene" uid="uid://b2tuw0jorjgr6" path="res://scenes/ui_scenes/hero_ui.tscn" id="2_nqjdu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqbxl"]
+
+[node name="fight_screen_ui" type="Node2D"]
+script = ExtResource("1_m417t")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+unique_name_in_owner = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jqbxl")
+current_tab = 0
+tabs_visible = false
+
+[node name="empty_tab" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="TabContainer/empty_tab"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 117.0
+offset_right = 410.0
+offset_bottom = 148.0
+text = "temp button, changes tab from empty tab"
+
+[node name="hero_ui" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="hero_ui2" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+visible = false
+layout_mode = 2
+hero_id = 1
+metadata/_tab_index = 2
+
+[node name="hero_ui3" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+visible = false
+layout_mode = 2
+hero_id = 2
+metadata/_tab_index = 3
+
+[connection signal="pressed" from="TabContainer/empty_tab/Button" to="." method="_on_button_pressed"]

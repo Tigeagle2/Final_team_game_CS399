@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2tuw0jorjgr6"]
+
+[ext_resource type="Script" uid="uid://c5vgwk3hh45j" path="res://scripts/ui_scripts/fight_ui_scripts/hero_ui.gd" id="1_ruxx6"]
+
+[node name="hero_ui" type="Control" groups=["hero_ui"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ruxx6")
+metadata/_tab_index = 0
+metadata/_edit_lock_ = true
+
+[node name="skill_menu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 277.0
+offset_top = 85.0
+offset_right = 357.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="skill_1_button" type="Button" parent="skill_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../skill_2_button")
+text = "Skill 1"
+
+[node name="skill_2_button" type="Button" parent="skill_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../skill_1_button")
+focus_neighbor_bottom = NodePath("../skill_3_button")
+text = "Skill 2"
+
+[node name="skill_3_button" type="Button" parent="skill_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../skill_2_button")
+focus_neighbor_bottom = NodePath("../skill_4_button")
+text = "Skill 3"
+
+[node name="skill_4_button" type="Button" parent="skill_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../skill_3_button")
+text = "Skill 4"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 390.0
+offset_top = 84.0
+offset_right = 475.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="attack_button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../defend_button")
+text = "Attack"
+
+[node name="defend_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../attack_button")
+focus_neighbor_bottom = NodePath("../skills_button")
+text = "Defend"
+
+[node name="skills_button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../defend_button")
+focus_neighbor_bottom = NodePath("../run_button")
+text = "Skills"
+
+[node name="run_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../skills_button")
+text = "Run"
+
+[connection signal="pressed" from="skill_menu/skill_1_button" to="." method="_on_skill_1_button_pressed"]
+[connection signal="pressed" from="skill_menu/skill_2_button" to="." method="_on_skill_2_button_pressed"]
+[connection signal="pressed" from="skill_menu/skill_3_button" to="." method="_on_skill_3_button_pressed"]
+[connection signal="pressed" from="skill_menu/skill_4_button" to="." method="_on_skill_4_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/attack_button" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/defend_button" to="." method="_on_defend_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/skills_button" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/run_button" to="." method="_on_run_button_pressed"]
