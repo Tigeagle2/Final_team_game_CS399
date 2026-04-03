@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://miol6kxeo6ua"]
+
+[ext_resource type="Script" uid="uid://b1ec03rhuq23g" path="res://scripts/menu_scripts/title_screen.gd" id="1_gfuk2"]
+
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("cover")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gfuk2")
+scene_transit_path = "res://scenes/MENUS/MainMenu.tscn"
+cover = NodePath("Cover")
+default = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 320.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 128.0
+offset_right = 265.0
+offset_bottom = 151.0
+text = "TITLE"
+
+[node name="Cover" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 320.0
+color = Color(0, 0, 0, 1)
