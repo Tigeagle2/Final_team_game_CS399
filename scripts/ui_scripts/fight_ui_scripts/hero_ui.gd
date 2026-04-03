@@ -46,6 +46,8 @@ func toggle_skill_menu():
 		fly_in()
 func emit_change_tab():
 	change_tab.emit()
+	if %skill_menu.visible:
+		%skill_menu.hide()
 func fly_in():
 	if active_skill_tween and active_skill_tween.is_running():
 		active_skill_tween.kill()
@@ -73,7 +75,7 @@ func input_focus():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("bottom_button") && %skill_menu.visible:
 		toggle_skill_menu()
-		
+
 func _on_attack_button_pressed() -> void:
 	if hero_id == 0:
 		pass
@@ -90,6 +92,7 @@ func _on_defend_button_pressed() -> void:
 		pass
 	elif hero_id == 2:
 		pass
+	emit_change_tab()
 
 func _on_skills_button_pressed() -> void:
 	toggle_skill_menu()
@@ -104,6 +107,7 @@ func _on_skill_1_button_pressed() -> void:
 		pass
 	elif hero_id == 2:
 		pass
+	emit_change_tab()
 
 func _on_skill_2_button_pressed() -> void:
 	if hero_id == 0:
@@ -112,6 +116,7 @@ func _on_skill_2_button_pressed() -> void:
 		pass
 	elif hero_id == 2:
 		pass
+	emit_change_tab()
 
 func _on_skill_3_button_pressed() -> void:
 	if hero_id == 0:
@@ -120,6 +125,7 @@ func _on_skill_3_button_pressed() -> void:
 		pass
 	elif hero_id == 2:
 		pass
+	emit_change_tab()
 
 func _on_skill_4_button_pressed() -> void:
 	if hero_id == 0:
@@ -128,3 +134,4 @@ func _on_skill_4_button_pressed() -> void:
 		pass
 	elif hero_id == 2:
 		pass
+	emit_change_tab()
