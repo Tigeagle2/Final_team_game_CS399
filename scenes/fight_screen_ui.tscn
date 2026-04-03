@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfa3sdwffdgfm"]
+
+[ext_resource type="Script" uid="uid://fvlqjy5bwvan" path="res://scripts/fight_screen_ui.gd" id="1_jqbxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqbxl"]
+
+[node name="fight_screen_ui" type="Node2D"]
+script = ExtResource("1_jqbxl")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jqbxl")
+current_tab = 0
+tabs_visible = false
+
+[node name="hero_1" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/hero_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 709.0
+offset_top = 162.0
+offset_right = 696.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="TabContainer/hero_1/VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Button2" type="Button" parent="TabContainer/hero_1/VBoxContainer"]
+layout_mode = 2
+text = "Defend"
+
+[node name="Button3" type="Button" parent="TabContainer/hero_1/VBoxContainer"]
+layout_mode = 2
+text = "Skills"
+
+[node name="Button4" type="Button" parent="TabContainer/hero_1/VBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="skill_list" type="VBoxContainer" parent="TabContainer/hero_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 546.0
+offset_top = 162.0
+offset_right = 546.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="TabContainer/hero_1/skill_list"]
+layout_mode = 2
+text = "Skill 1"
+
+[node name="Button2" type="Button" parent="TabContainer/hero_1/skill_list"]
+layout_mode = 2
+text = "Skill 2"
+
+[node name="Button3" type="Button" parent="TabContainer/hero_1/skill_list"]
+layout_mode = 2
+text = "Skill 3"
+
+[node name="Button4" type="Button" parent="TabContainer/hero_1/skill_list"]
+layout_mode = 2
+text = "Skill 4"
+
+[node name="hero_2" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="hero_3" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
