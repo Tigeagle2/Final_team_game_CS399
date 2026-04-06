@@ -28,12 +28,30 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../skill_2_button")
 text = "Skill 1"
 
+[node name="energy_label" type="Label" parent="skill_menu/skill_1_button"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 26.0
+text = "10"
+horizontal_alignment = 2
+
 [node name="skill_2_button" type="Button" parent="skill_menu"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../skill_1_button")
 focus_neighbor_bottom = NodePath("../skill_3_button")
 text = "Skill 2"
+
+[node name="energy_label" type="Label" parent="skill_menu/skill_2_button"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 26.0
+text = "10"
+horizontal_alignment = 2
 
 [node name="skill_3_button" type="Button" parent="skill_menu"]
 unique_name_in_owner = true
@@ -42,11 +60,29 @@ focus_neighbor_top = NodePath("../skill_2_button")
 focus_neighbor_bottom = NodePath("../skill_4_button")
 text = "Skill 3"
 
+[node name="energy_label" type="Label" parent="skill_menu/skill_3_button"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 26.0
+text = "10"
+horizontal_alignment = 2
+
 [node name="skill_4_button" type="Button" parent="skill_menu"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../skill_3_button")
 text = "Skill 4"
+
+[node name="energy_label" type="Label" parent="skill_menu/skill_4_button"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 26.0
+text = "10"
+horizontal_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
