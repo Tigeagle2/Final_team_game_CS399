@@ -10,4 +10,5 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_anything_pressed():
+		click_sound.play()
 		transit_scene()

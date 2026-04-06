@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsredd0yf7pyt"]
+[gd_scene load_steps=15 format=3 uid="uid://dsredd0yf7pyt"]
 
 [ext_resource type="Script" uid="uid://1el7jukeqs06" path="res://scripts/menu_scripts/main_menu.gd" id="1_7ngyy"]
+[ext_resource type="Texture2D" uid="uid://c5h7vh1cbbk3i" path="res://assets/B_StartGameNormal.png" id="2_mbw6h"]
+[ext_resource type="Texture2D" uid="uid://qhd7enkqxgft" path="res://assets/B_StartGamePress.png" id="3_obql5"]
+[ext_resource type="Texture2D" uid="uid://fm3ib8nyxgim" path="res://assets/B_StartGameHover.png" id="4_7t5vp"]
+[ext_resource type="Texture2D" uid="uid://137uxctwhw6g" path="res://assets/B_OptionsNormal.png" id="5_t2hjb"]
+[ext_resource type="Texture2D" uid="uid://bckttiw723we3" path="res://assets/B_OptionsPress.png" id="6_10ao2"]
+[ext_resource type="Texture2D" uid="uid://b6j5n7gc7c4hu" path="res://assets/B_OptionsHover.png" id="7_ss6xs"]
+[ext_resource type="Texture2D" uid="uid://7hr8gtj5ekjv" path="res://assets/B_CreditsNormal.png" id="8_tt7gy"]
+[ext_resource type="Texture2D" uid="uid://cadu1ork1xcsb" path="res://assets/B_CreditsPress.png" id="9_ghe8c"]
+[ext_resource type="Texture2D" uid="uid://d7odav6qfdeo" path="res://assets/B_CreditsHover.png" id="10_qwnw5"]
+[ext_resource type="Texture2D" uid="uid://isoavu44ts41" path="res://assets/B_ExitGameMenu.png" id="11_664wv"]
+[ext_resource type="Texture2D" uid="uid://c5kjbrypauth6" path="res://assets/B_ExitGamePress.png" id="12_dlius"]
+[ext_resource type="Texture2D" uid="uid://dvvtcy0guev2" path="res://assets/B_ExitGameHover.png" id="13_gyj2o"]
+[ext_resource type="AudioStream" uid="uid://c487w1r1f316c" path="res://sounds/click.mp3" id="14_obql5"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("cover", "click_sound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,18 +23,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ngyy")
+cover = NodePath("Cover")
 default = true
+click_sound = NodePath("Click")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 480.0
+offset_bottom = 252.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_mbw6h")
+texture_pressed = ExtResource("3_obql5")
+texture_hover = ExtResource("4_7t5vp")
+stretch_mode = 3
+
+[node name="Options" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_t2hjb")
+texture_pressed = ExtResource("6_10ao2")
+texture_hover = ExtResource("7_ss6xs")
+stretch_mode = 3
+
+[node name="Credits" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_tt7gy")
+texture_pressed = ExtResource("9_ghe8c")
+texture_hover = ExtResource("10_qwnw5")
+stretch_mode = 3
+
+[node name="Exit" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_664wv")
+texture_pressed = ExtResource("12_dlius")
+texture_hover = ExtResource("13_gyj2o")
+stretch_mode = 3
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_obql5")
+bus = &"SFX"
+
+[node name="Cover" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 320.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 152.0
-offset_right = 296.0
-offset_bottom = 175.0
-text = "MAIN MENU"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

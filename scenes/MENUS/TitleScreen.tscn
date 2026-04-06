@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://miol6kxeo6ua"]
+[gd_scene load_steps=4 format=3 uid="uid://miol6kxeo6ua"]
 
 [ext_resource type="Script" uid="uid://b1ec03rhuq23g" path="res://scripts/menu_scripts/title_screen.gd" id="1_gfuk2"]
+[ext_resource type="FontFile" uid="uid://djqam0ocnsvt8" path="res://VixalFont3.ttf" id="2_jqpyh"]
+[ext_resource type="AudioStream" uid="uid://c487w1r1f316c" path="res://sounds/click.mp3" id="3_2enhr"]
 
-[node name="TitleScreen" type="Control" node_paths=PackedStringArray("cover")]
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("cover", "click_sound")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gfuk2")
 scene_transit_path = "res://scenes/MENUS/MainMenu.tscn"
 cover = NodePath("Cover")
 default = true
+click_sound = NodePath("Click")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -18,14 +21,19 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 128.0
-offset_right = 265.0
-offset_bottom = 151.0
-text = "TITLE"
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 366.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("2_jqpyh")
+text = "Schoolhouse Warriors"
 
 [node name="Cover" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 320.0
 color = Color(0, 0, 0, 1)
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2enhr")
+bus = &"SFX"

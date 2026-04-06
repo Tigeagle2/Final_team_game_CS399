@@ -3,6 +3,7 @@ class_name Menu
 
 ##If true, menu will already be positioned within the viewport. Otherwise, menu will be positioned above the screen.
 @export var default: bool
+@export var click_sound: AudioStreamPlayer
 
 var slide_duration: float = 1.5
 var active: bool = false
