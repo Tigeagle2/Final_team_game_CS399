@@ -19,7 +19,7 @@ func change_current_tab():
 		# Put code that sends the attacks to the turn controller here, or call a function
 	else:
 		%TabContainer.set_current_tab(%TabContainer.current_tab + 1)
-	if %TabContainer.get_current_tab_control().has_method("input_focus"):
+	if %TabContainer.get_current_tab_control().has_method("input_focus") && Input.get_connected_joypads().size() > 0:
 		%TabContainer.get_current_tab_control().input_focus()
 func on_change_tab():
 	change_current_tab()

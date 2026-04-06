@@ -10,10 +10,11 @@ var active_skill_tween: Tween
 var skill_tween_offset: int = 50
 ## How long the tweens take
 var skill_tween_duration: float = 0.3
+var skill_menu_open: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_menu()
-	%skill_menu.hide()
+	%skill_menu.modulate.a = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -37,17 +38,28 @@ func setup_menu():
 		print("invalid hero selection")
 		get_tree().quit(1843)
 func toggle_skill_menu():
-	if %skill_menu.visible:
-		fly_out()
-		%skills_button.grab_focus()
+	if skill_menu_open:
+		toggle_skill_menu_anminations()
+		skill_menu_open = false
+		
 	else:
-		%skill_menu.show()
-		%skill_1_button.grab_focus()
+		toggle_skill_menu_anminations()
+		skill_menu_open = true
+		
+	print(skill_menu_open)
+func toggle_skill_menu_anminations():
+	if skill_menu_open:
+		fly_out()
+		if Input.get_connected_joypads().size() > 0:
+			%skills_button.grab_focus()
+	else:
+		if Input.get_connected_joypads().size() > 0:
+			%skill_1_button.grab_focus()
 		fly_in()
 func emit_change_tab():
 	change_tab.emit()
-	if %skill_menu.visible:
-		%skill_menu.hide()
+	if skill_menu_open:
+		toggle_skill_menu()
 func fly_in():
 	if active_skill_tween and active_skill_tween.is_running():
 		active_skill_tween.kill()
@@ -68,8 +80,6 @@ func fly_out():
 	active_skill_tween.set_ease(Tween.EASE_OUT)
 	active_skill_tween.tween_property(%skill_menu, "position:x", final_position_x, skill_tween_duration)
 	active_skill_tween.parallel().tween_property(%skill_menu, "modulate:a", 0.0, skill_tween_duration)
-	active_skill_tween.tween_callback(%skill_menu.hide)
-	
 func input_focus():
 	%attack_button.grab_focus()
 func _input(event: InputEvent) -> void:
@@ -101,6 +111,8 @@ func _on_run_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_skill_1_button_pressed() -> void:
+	if not skill_menu_open:
+		return
 	if hero_id == 0:
 		pass
 	elif hero_id == 1:
@@ -110,6 +122,8 @@ func _on_skill_1_button_pressed() -> void:
 	emit_change_tab()
 
 func _on_skill_2_button_pressed() -> void:
+	if not skill_menu_open:
+		return
 	if hero_id == 0:
 		pass
 	elif hero_id == 1:
@@ -119,6 +133,8 @@ func _on_skill_2_button_pressed() -> void:
 	emit_change_tab()
 
 func _on_skill_3_button_pressed() -> void:
+	if not skill_menu_open:
+		return
 	if hero_id == 0:
 		pass
 	elif hero_id == 1:
@@ -128,6 +144,8 @@ func _on_skill_3_button_pressed() -> void:
 	emit_change_tab()
 
 func _on_skill_4_button_pressed() -> void:
+	if not skill_menu_open:
+		return
 	if hero_id == 0:
 		pass
 	elif hero_id == 1:
