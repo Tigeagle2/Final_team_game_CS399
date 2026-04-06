@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bewqkdwlrfute"]
+
+[ext_resource type="Script" uid="uid://b01l4oduhqk8g" path="res://battle_system/turn_resolver.gd" id="1_5mqov"]
+[ext_resource type="Script" uid="uid://cycclnep1466q" path="res://battle_system/team_controllers/enemy_controller.gd" id="2_inb17"]
+[ext_resource type="Script" uid="uid://b2tkn4g3ycy84" path="res://battle_system/team_controllers/player_controller.gd" id="3_1w0ur"]
+
+[node name="BattleLayer" type="CanvasLayer"]
+
+[node name="TurnResolver" type="Node" parent="." node_paths=PackedStringArray("teams_array")]
+script = ExtResource("1_5mqov")
+teams_array = [NodePath("../PlayerController"), NodePath("../EnemyController")]
+metadata/_custom_type_script = "uid://b01l4oduhqk8g"
+
+[node name="EnemyController" type="Node" parent="."]
+script = ExtResource("2_inb17")
+metadata/_custom_type_script = "uid://cycclnep1466q"
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("3_1w0ur")
+metadata/_custom_type_script = "uid://b2tkn4g3ycy84"
