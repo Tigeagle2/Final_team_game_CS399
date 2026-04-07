@@ -8,7 +8,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gfuk2")
-scene_transit_path = "res://scenes/MENUS/MainMenu.tscn"
+scene_transit_path = "res://scenes/MENUS/MainMenuScene.tscn"
 cover = NodePath("Cover")
 default = true
 click_sound = NodePath("Click")

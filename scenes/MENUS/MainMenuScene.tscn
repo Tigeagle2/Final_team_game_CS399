@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnukamkw0dmv"]
+
+[ext_resource type="PackedScene" uid="uid://dhv2nexpbhg7d" path="res://scenes/MENUS/SaveSelect.tscn" id="1_l2t3x"]
+[ext_resource type="PackedScene" uid="uid://dsredd0yf7pyt" path="res://scenes/MENUS/MainMenu.tscn" id="1_qklv3"]
+[ext_resource type="PackedScene" uid="uid://d27nwhfbxcrcm" path="res://scenes/MENUS/Options.tscn" id="2_l2t3x"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SaveSelect" parent="." node_paths=PackedStringArray("MainMenu") instance=ExtResource("1_l2t3x")]
+MainMenu = NodePath("../MainMenu")
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("Options", "SaveMenu") instance=ExtResource("1_qklv3")]
+Options = NodePath("../Options")
+SaveMenu = NodePath("../SaveSelect")
+
+[node name="Options" parent="." node_paths=PackedStringArray("MainMenu") instance=ExtResource("2_l2t3x")]
+MainMenu = NodePath("../MainMenu")

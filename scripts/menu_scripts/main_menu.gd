@@ -1,15 +1,21 @@
 extends TransitMenu
 
+@export var Options: Menu
+@export var SaveMenu: Menu
+@export var Credits: Control
+
 func _ready() -> void:
 	enter()
 
 func _on_start_pressed() -> void:
 	click_sound.play()
 	release()
+	SaveMenu.summon()
 
 func _on_options_pressed() -> void:
 	click_sound.play()
 	release()
+	Options.summon()
 
 func _on_credits_pressed() -> void:
 	click_sound.play()
