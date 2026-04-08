@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ckd3581fpk1"]
+
+[ext_resource type="Script" uid="uid://dq85eefxia2cl" path="res://scripts/hero_infight.gd" id="1_f88r8"]
+
+[node name="hero_infight" type="Node2D"]
+script = ExtResource("1_f88r8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

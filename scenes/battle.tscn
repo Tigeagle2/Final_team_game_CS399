@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofoqc5v6bsab"]
+
+[ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
+[ext_resource type="PackedScene" uid="uid://d0ckd3581fpk1" path="res://scenes/hero_infight.tscn" id="2_th188"]
+
+[node name="battle" type="Node2D"]
+
+[node name="fight_screen_ui" parent="." instance=ExtResource("1_dn72j")]
+
+[node name="hero_1" parent="." instance=ExtResource("2_th188")]
+position = Vector2(343, 246)
+
+[node name="hero_2" parent="." instance=ExtResource("2_th188")]
+position = Vector2(339, 200)
+
+[node name="hero_3" parent="." instance=ExtResource("2_th188")]
+position = Vector2(333, 167)
