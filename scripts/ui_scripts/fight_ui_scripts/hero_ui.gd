@@ -18,6 +18,8 @@ var skill_1_required_energy: int = 100
 var skill_2_required_energy: int = 50
 var skill_3_required_energy: int = 25
 var skill_4_required_energy: int = 1
+## Sends the info to the controller: index 0: attack, index 1: defend, index 2: run, index 3: skill 1, index 4: skill 2, index 5: skill 3, index 4: skill 4
+signal hero_move(index: int, hero_num: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_menu()
@@ -104,40 +106,25 @@ func _input(event: InputEvent) -> void:
 		toggle_skill_menu()
 
 func _on_attack_button_pressed() -> void:
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(0, hero_id)
 	emit_change_tab()
 
 func _on_defend_button_pressed() -> void:
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(1, hero_id)
 	emit_change_tab()
 
 func _on_skills_button_pressed() -> void:
 	toggle_skill_menu()
 
 func _on_run_button_pressed() -> void:
-	pass # Replace with function body.
+	hero_move.emit(2, hero_id)
 
 func _on_skill_1_button_pressed() -> void:
 	if not skill_menu_open:
 		return
 	if skill_1_required_energy < energy:
 		return
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(3, hero_id)
 	emit_change_tab()
 
 func _on_skill_2_button_pressed() -> void:
@@ -145,12 +132,7 @@ func _on_skill_2_button_pressed() -> void:
 		return
 	if skill_2_required_energy < energy:
 		return
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(4, hero_id)
 	emit_change_tab()
 
 func _on_skill_3_button_pressed() -> void:
@@ -158,12 +140,7 @@ func _on_skill_3_button_pressed() -> void:
 		return
 	if skill_3_required_energy < energy:
 		return
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(5, hero_id)
 	emit_change_tab()
 
 func _on_skill_4_button_pressed() -> void:
@@ -171,10 +148,5 @@ func _on_skill_4_button_pressed() -> void:
 		return
 	if skill_4_required_energy < energy:
 		pass
-	if hero_id == 0:
-		pass
-	elif hero_id == 1:
-		pass
-	elif hero_id == 2:
-		pass
+	hero_move.emit(6, hero_id)
 	emit_change_tab()

@@ -1,6 +1,6 @@
 extends Node2D
-
-
+## Sends the info to the controller: index 0: attack, index 1: defend, index 2: run, index 3: skill 1, index 4: skill 2, index 5: skill 3, index 4: skill 4
+signal hero_moved(index: int, hero_num: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	##Stores the hero_ui children
@@ -29,3 +29,13 @@ func on_change_tab():
 
 func _on_button_pressed() -> void:
 	change_current_tab()
+
+
+func _on_hero_ui_1_hero_move(index: int, hero_num: int) -> void:
+	hero_moved.emit(index, hero_num)
+
+func _on_hero_ui_2_1_hero_move(index: int, hero_num: int) -> void:
+	hero_moved.emit(index, hero_num)
+
+func _on_hero_ui_3_1_hero_move(index: int, hero_num: int) -> void:
+	hero_moved.emit(index, hero_num)

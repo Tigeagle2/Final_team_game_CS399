@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 cheats="*res://scripts/global_scripts/cheats.gd"
+BattleService="*res://battle_system/battle_service.gd"
 
 [display]
 

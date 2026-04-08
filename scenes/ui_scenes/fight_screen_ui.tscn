@@ -26,21 +26,24 @@ offset_right = 410.0
 offset_bottom = 148.0
 text = "temp button, changes tab from empty tab"
 
-[node name="hero_ui" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+[node name="hero_ui_1" parent="TabContainer" instance=ExtResource("2_nqjdu")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="hero_ui2" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+[node name="hero_ui2_1" parent="TabContainer" instance=ExtResource("2_nqjdu")]
 visible = false
 layout_mode = 2
 hero_id = 1
 metadata/_tab_index = 2
 
-[node name="hero_ui3" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+[node name="hero_ui3_1" parent="TabContainer" instance=ExtResource("2_nqjdu")]
 visible = false
 layout_mode = 2
 hero_id = 2
 metadata/_tab_index = 3
 
 [connection signal="pressed" from="TabContainer/empty_tab/Button" to="." method="_on_button_pressed"]
+[connection signal="hero_move" from="TabContainer/hero_ui_1" to="." method="_on_hero_ui_1_hero_move"]
+[connection signal="hero_move" from="TabContainer/hero_ui2_1" to="." method="_on_hero_ui_2_1_hero_move"]
+[connection signal="hero_move" from="TabContainer/hero_ui3_1" to="." method="_on_hero_ui_3_1_hero_move"]

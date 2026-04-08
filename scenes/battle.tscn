@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofoqc5v6bsab"]
+
+[ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
+[ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://scripts/battle.gd" id="1_lpir7"]
+[ext_resource type="PackedScene" uid="uid://d0ckd3581fpk1" path="res://scenes/hero_infight_1.tscn" id="2_th188"]
+[ext_resource type="PackedScene" uid="uid://c3qrinu47g8mb" path="res://scenes/hero_infight_2.tscn" id="3_a12nh"]
+[ext_resource type="PackedScene" uid="uid://bwgp5suev3fdg" path="res://scenes/hero_infight_3.tscn" id="4_lpir7"]
+
+[node name="battle" type="Node2D"]
+script = ExtResource("1_lpir7")
+
+[node name="fight_screen_ui" parent="." instance=ExtResource("1_dn72j")]
+unique_name_in_owner = true
+
+[node name="hero_infight_1" parent="." instance=ExtResource("2_th188")]
+position = Vector2(372, 186)
+
+[node name="hero_infight2" parent="." instance=ExtResource("3_a12nh")]
+position = Vector2(371, 239)
+
+[node name="hero_infight3" parent="." instance=ExtResource("4_lpir7")]
+position = Vector2(375, 287)
