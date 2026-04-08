@@ -28,5 +28,6 @@ offset_bottom = 34.0
 texture_normal = ExtResource("3_dbu8v")
 texture_pressed = ExtResource("4_81r5r")
 texture_hover = ExtResource("5_mevpy")
+texture_focused = ExtResource("5_mevpy")
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

@@ -42,6 +42,7 @@ layout_mode = 2
 texture_normal = ExtResource("2_mbw6h")
 texture_pressed = ExtResource("3_obql5")
 texture_hover = ExtResource("4_7t5vp")
+texture_focused = ExtResource("4_7t5vp")
 stretch_mode = 3
 
 [node name="Options" type="TextureButton" parent="CenterContainer/VBoxContainer"]
@@ -49,6 +50,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_t2hjb")
 texture_pressed = ExtResource("6_10ao2")
 texture_hover = ExtResource("7_ss6xs")
+texture_focused = ExtResource("7_ss6xs")
 stretch_mode = 3
 
 [node name="Credits" type="TextureButton" parent="CenterContainer/VBoxContainer"]
@@ -56,6 +58,7 @@ layout_mode = 2
 texture_normal = ExtResource("8_tt7gy")
 texture_pressed = ExtResource("9_ghe8c")
 texture_hover = ExtResource("10_qwnw5")
+texture_focused = ExtResource("10_qwnw5")
 stretch_mode = 3
 
 [node name="Exit" type="TextureButton" parent="CenterContainer/VBoxContainer"]
@@ -63,6 +66,7 @@ layout_mode = 2
 texture_normal = ExtResource("11_664wv")
 texture_pressed = ExtResource("12_dlius")
 texture_hover = ExtResource("13_gyj2o")
+texture_focused = ExtResource("13_gyj2o")
 stretch_mode = 3
 
 [node name="Click" type="AudioStreamPlayer" parent="."]

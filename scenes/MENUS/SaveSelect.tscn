@@ -25,6 +25,7 @@ offset_bottom = 34.0
 texture_normal = ExtResource("2_18bqw")
 texture_pressed = ExtResource("3_5a26e")
 texture_hover = ExtResource("4_jab2b")
+texture_focused = ExtResource("4_jab2b")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pfduo")
