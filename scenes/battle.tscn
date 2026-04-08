@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=9 format=3 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://scripts/battle.gd" id="1_lpir7"]
-[ext_resource type="PackedScene" uid="uid://d0ckd3581fpk1" path="res://scenes/hero_infight_1.tscn" id="2_th188"]
-[ext_resource type="PackedScene" uid="uid://c3qrinu47g8mb" path="res://scenes/hero_infight_2.tscn" id="3_a12nh"]
-[ext_resource type="PackedScene" uid="uid://bwgp5suev3fdg" path="res://scenes/hero_infight_3.tscn" id="4_lpir7"]
+[ext_resource type="PackedScene" uid="uid://d0ckd3581fpk1" path="res://scenes/hero_infight_scenes/hero_infight_1.tscn" id="2_th188"]
+[ext_resource type="PackedScene" uid="uid://c3qrinu47g8mb" path="res://scenes/hero_infight_scenes/hero_infight_2.tscn" id="3_a12nh"]
+[ext_resource type="Script" uid="uid://b32x4u6mh45pg" path="res://scripts/hero_infight_1.gd" id="4_f4pi3"]
+[ext_resource type="PackedScene" uid="uid://bwgp5suev3fdg" path="res://scenes/hero_infight_scenes/hero_infight_3.tscn" id="4_lpir7"]
+[ext_resource type="Script" uid="uid://cyv7s5avu01i" path="res://scripts/hero_infight_2.gd" id="6_yahae"]
+[ext_resource type="Script" uid="uid://d127i0vnrtq87" path="res://scripts/hero_infight_3.gd" id="8_v7i3o"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_lpir7")
@@ -13,10 +16,16 @@ script = ExtResource("1_lpir7")
 unique_name_in_owner = true
 
 [node name="hero_infight_1" parent="." instance=ExtResource("2_th188")]
+unique_name_in_owner = true
 position = Vector2(372, 186)
+script = ExtResource("4_f4pi3")
 
-[node name="hero_infight2" parent="." instance=ExtResource("3_a12nh")]
+[node name="hero_infight_2" parent="." instance=ExtResource("3_a12nh")]
+unique_name_in_owner = true
 position = Vector2(371, 239)
+script = ExtResource("6_yahae")
 
-[node name="hero_infight3" parent="." instance=ExtResource("4_lpir7")]
+[node name="hero_infight_3" parent="." instance=ExtResource("4_lpir7")]
+unique_name_in_owner = true
 position = Vector2(375, 287)
+script = ExtResource("8_v7i3o")
