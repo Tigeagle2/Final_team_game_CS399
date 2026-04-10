@@ -1,4 +1,3 @@
-@abstract
 class_name Move extends Resource
 
 @export var animation_name: StringName
