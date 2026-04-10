@@ -18,5 +18,6 @@ func _ready():
 func select_move(index: int):
 	selected_move = weakref(move_array[index])
 
-func play_animation():
+func play_animation(animation_name: StringName):
+	# play an animation for the battler here
 	pass

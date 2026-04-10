@@ -5,7 +5,7 @@ signal battler_selected_move
 @export var player_ui: Node2D
 
 func _ready() -> void:
-	moves_decided.emit(self)
+	pass
 
 func decide_moves():
 	player_ui.hero_moved.connect(_on_temp_signal)
