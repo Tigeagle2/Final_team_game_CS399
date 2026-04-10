@@ -1,5 +1,5 @@
-[gd_scene format=3 uid="uid://d0ckd3581fpk1"]
+[gd_scene format=3 uid="uid://bt5gfmvckcd8n"]
 
 [node name="hero_infight" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

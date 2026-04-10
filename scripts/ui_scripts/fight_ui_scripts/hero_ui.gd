@@ -4,7 +4,7 @@ extends Control
 ## signal used to tell the tab container to change to a new tab
 signal change_tab
 ## links the characture for energy reasons
-var linked_hero: Node2D
+var battler: Node2D
 ## stores the starting position for the skill menu for the tweens to use
 @onready var skill_home_x: float = %skill_menu.position.x
 var active_skill_tween: Tween
@@ -13,7 +13,7 @@ var skill_tween_offset: int = 50
 ## How long the tweens take
 var skill_tween_duration: float = 0.3
 var skill_menu_open: bool = false
-var energy: int
+var energy: int = 100
 var skill_1_required_energy: int = 100
 var skill_2_required_energy: int = 50
 var skill_3_required_energy: int = 25
@@ -48,15 +48,21 @@ func setup_menu():
 		print("invalid hero selection")
 		get_tree().quit(1843)
 	
-func setup_linked_hero():
-	skill_1_required_energy = linked_hero.skill_1_energy
-	skill_2_required_energy = linked_hero.skill_2_energy
-	skill_3_required_energy = linked_hero.skill_3_energy
-	skill_4_required_energy = linked_hero.skill_4_energy 
+func setup_battler():
+	if battler == null:
+		return
+	for i in range(battler.move_array.size()):
+		var move_resource = battler.move_array[i]
+		match i:
+			2: skill_1_required_energy = move_resource.energy_cost
+			3: skill_2_required_energy = move_resource.energy_cost
+			4: skill_3_required_energy = move_resource.energy_cost
+			5: skill_4_required_energy = move_resource.energy_cost
 	%skill_1_button/energy_label.set_text(str(skill_1_required_energy))
 	%skill_2_button/energy_label.set_text(str(skill_2_required_energy))
 	%skill_3_button/energy_label.set_text(str(skill_3_required_energy))
 	%skill_4_button/energy_label.set_text(str(skill_4_required_energy))
+	pass
 func toggle_skill_menu():
 	if skill_menu_open:
 		toggle_skill_menu_anminations()
@@ -101,8 +107,7 @@ func fly_out():
 func input_focus():
 	%attack_button.grab_focus()
 func turn_update():
-	if linked_hero != null:
-		energy = linked_hero.energy
+	pass
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("bottom_button") && %skill_menu.visible:
 		toggle_skill_menu()
@@ -124,7 +129,7 @@ func _on_run_button_pressed() -> void:
 func _on_skill_1_button_pressed() -> void:
 	if not skill_menu_open:
 		return
-	if skill_1_required_energy < energy:
+	if skill_1_required_energy > energy:
 		return
 	hero_move.emit(3, hero_id)
 	emit_change_tab()
@@ -132,7 +137,7 @@ func _on_skill_1_button_pressed() -> void:
 func _on_skill_2_button_pressed() -> void:
 	if not skill_menu_open:
 		return
-	if skill_2_required_energy < energy:
+	if skill_2_required_energy > energy:
 		return
 	hero_move.emit(4, hero_id)
 	emit_change_tab()
@@ -140,7 +145,7 @@ func _on_skill_2_button_pressed() -> void:
 func _on_skill_3_button_pressed() -> void:
 	if not skill_menu_open:
 		return
-	if skill_3_required_energy < energy:
+	if skill_3_required_energy > energy:
 		return
 	hero_move.emit(5, hero_id)
 	emit_change_tab()
@@ -148,7 +153,7 @@ func _on_skill_3_button_pressed() -> void:
 func _on_skill_4_button_pressed() -> void:
 	if not skill_menu_open:
 		return
-	if skill_4_required_energy < energy:
-		pass
+	if skill_4_required_energy > energy:
+		return
 	hero_move.emit(6, hero_id)
 	emit_change_tab()
