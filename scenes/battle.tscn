@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=12 format=3 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://scripts/battle.gd" id="1_lpir7"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cde8qxocuq6p" path="res://scenes/hero_infight_scenes/hero_infight_2.tscn" id="3_a12nh"]
 [ext_resource type="Script" uid="uid://dyu8a5asjyy4h" path="res://battle_system/battler.gd" id="4_4k1nj"]
 [ext_resource type="PackedScene" uid="uid://hlns22a5nuow" path="res://scenes/hero_infight_scenes/hero_infight_3.tscn" id="4_lpir7"]
+[ext_resource type="Resource" uid="uid://dvbhgtpinhj2p" path="res://Resource Files/temp_move_1.tres" id="6_66ngm"]
+[ext_resource type="Resource" uid="uid://chhwlh7ntnxqb" path="res://Resource Files/temp_move_2.tres" id="7_03edq"]
 [ext_resource type="Script" uid="uid://cuyg0w6vqilaa" path="res://battle_system/move.gd" id="7_f4pi3"]
+[ext_resource type="Resource" uid="uid://bsoaps4spaalm" path="res://Resource Files/temp_move_3.tres" id="8_22uqi"]
+[ext_resource type="Resource" uid="uid://day8nf58cjys6" path="res://Resource Files/temp_move_4.tres" id="9_6ni85"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_lpir7")
@@ -20,6 +24,7 @@ position = Vector2(372, 186)
 
 [node name="Battler" type="Node2D" parent="hero_infight_1"]
 script = ExtResource("4_4k1nj")
+move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="hero_infight_2" parent="." instance=ExtResource("3_a12nh")]
@@ -28,6 +33,7 @@ position = Vector2(371, 239)
 
 [node name="Battler" type="Node2D" parent="hero_infight_2"]
 script = ExtResource("4_4k1nj")
+move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("9_6ni85"), ExtResource("8_22uqi"), ExtResource("7_03edq"), ExtResource("6_66ngm")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="hero_infight_3" parent="." instance=ExtResource("4_lpir7")]
@@ -36,5 +42,7 @@ position = Vector2(375, 287)
 
 [node name="Battler" type="Node2D" parent="hero_infight_3"]
 script = ExtResource("4_4k1nj")
-move_array = Array[ExtResource("7_f4pi3")]([null])
+move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("6_66ngm"), ExtResource("8_22uqi")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

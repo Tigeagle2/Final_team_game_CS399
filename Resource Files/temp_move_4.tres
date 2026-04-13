@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://day8nf58cjys6"]
+
+[ext_resource type="Script" uid="uid://cuyg0w6vqilaa" path="res://battle_system/move.gd" id="1_bu8x0"]
+
+[resource]
+script = ExtResource("1_bu8x0")
+energy_cost = 47
+metadata/_custom_type_script = "uid://cuyg0w6vqilaa"

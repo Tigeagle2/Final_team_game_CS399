@@ -6,6 +6,8 @@ var health: float
 @export var max_energy: float
 var energy: float
 @export var speed: float
+@export var strength: float = 1.0
+@export var defense: float = 1.0
 
 @export_category("MOVES")
 @export var move_array: Array[Move]
