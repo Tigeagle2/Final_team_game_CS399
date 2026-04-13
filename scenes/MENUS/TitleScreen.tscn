@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://miol6kxeo6ua"]
 
 [ext_resource type="Script" uid="uid://b1ec03rhuq23g" path="res://scripts/menu_scripts/title_screen.gd" id="1_gfuk2"]
-[ext_resource type="FontFile" uid="uid://djqam0ocnsvt8" path="res://VixalFont3.ttf" id="2_jqpyh"]
-[ext_resource type="AudioStream" uid="uid://c487w1r1f316c" path="res://sounds/click.mp3" id="3_2enhr"]
+[ext_resource type="FontFile" uid="uid://dnixln2jopcci" path="res://VixalFont3.ttf" id="2_jqpyh"]
+[ext_resource type="AudioStream" uid="uid://c487w1r1f316c" path="res://sounds/SFX/click.mp3" id="3_2enhr"]
 
 [node name="TitleScreen" type="Control" node_paths=PackedStringArray("cover", "click_sound")]
 layout_mode = 3
