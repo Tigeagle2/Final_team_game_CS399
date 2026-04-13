@@ -13,7 +13,7 @@ var skill_tween_offset: int = 50
 ## How long the tweens take
 var skill_tween_duration: float = 0.3
 var skill_menu_open: bool = false
-var energy: int = 100
+var energy: float = 100
 var skill_1_required_energy: int = 100
 var skill_2_required_energy: int = 50
 var skill_3_required_energy: int = 25
@@ -62,7 +62,6 @@ func setup_battler():
 	%skill_2_button/energy_label.set_text(str(skill_2_required_energy))
 	%skill_3_button/energy_label.set_text(str(skill_3_required_energy))
 	%skill_4_button/energy_label.set_text(str(skill_4_required_energy))
-	pass
 func toggle_skill_menu():
 	if skill_menu_open:
 		toggle_skill_menu_anminations()
@@ -107,7 +106,7 @@ func fly_out():
 func input_focus():
 	%attack_button.grab_focus()
 func turn_update():
-	pass
+	energy = battler.energy
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("bottom_button") && %skill_menu.visible:
 		toggle_skill_menu()
