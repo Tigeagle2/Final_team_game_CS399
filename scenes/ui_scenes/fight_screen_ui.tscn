@@ -27,17 +27,20 @@ offset_bottom = 148.0
 text = "temp button, changes tab from empty tab"
 
 [node name="hero_ui_1" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="hero_ui_2" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 hero_id = 1
 metadata/_tab_index = 2
 
 [node name="hero_ui_3" parent="TabContainer" instance=ExtResource("2_nqjdu")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 hero_id = 2
