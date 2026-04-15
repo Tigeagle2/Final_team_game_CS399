@@ -15,7 +15,7 @@ func decide_moves():
 	
 	moves_decided.emit(self)
 
-func _on_temp_signal(move_index: int, battler_index: int):
+func _on_temp_signal(move_index: int, battler_index: int, battler_array: Array[Battler]):
 	var battler: Battler = battler_array[battler_index]
-	battler.select_move(move_index)
+	battler.select_move(move_index,battler_array)
 	battler_selected_move.emit()
