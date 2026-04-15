@@ -2,7 +2,6 @@ extends Control
 ## Choses the hero, The id is used for determining the output and elemnts of the UI
 @export_enum("hero 1", "hero 2", "hero 3") var hero_id: int
 ## signal used to tell the tab container to change to a new tab
-signal change_tab
 ## links the characture for energy reasons
 var battler: Node2D
 ## stores the starting position for the skill menu for the tweens to use
@@ -66,10 +65,6 @@ func toggle_skill_menu_anminations():
 		if Input.get_connected_joypads().size() > 0:
 			%skill_1_button.grab_focus()
 		fly_in()
-func emit_change_tab():
-	change_tab.emit()
-	if skill_menu_open:
-		toggle_skill_menu()
 func fly_in():
 	if active_skill_tween and active_skill_tween.is_running():
 		active_skill_tween.kill()
@@ -100,11 +95,9 @@ func _input(event: InputEvent) -> void:
 
 func _on_attack_button_pressed() -> void:
 	hero_move.emit(0, hero_id)
-	emit_change_tab()
 
 func _on_defend_button_pressed() -> void:
 	hero_move.emit(1, hero_id)
-	emit_change_tab()
 
 func _on_skills_button_pressed() -> void:
 	toggle_skill_menu()
@@ -118,7 +111,7 @@ func _on_skill_1_button_pressed() -> void:
 	if skill_1_required_energy > energy:
 		return
 	hero_move.emit(3, hero_id)
-	emit_change_tab()
+
 
 func _on_skill_2_button_pressed() -> void:
 	if not skill_menu_open:
@@ -126,7 +119,7 @@ func _on_skill_2_button_pressed() -> void:
 	if skill_2_required_energy > energy:
 		return
 	hero_move.emit(4, hero_id)
-	emit_change_tab()
+
 
 func _on_skill_3_button_pressed() -> void:
 	if not skill_menu_open:
@@ -134,7 +127,7 @@ func _on_skill_3_button_pressed() -> void:
 	if skill_3_required_energy > energy:
 		return
 	hero_move.emit(5, hero_id)
-	emit_change_tab()
+
 
 func _on_skill_4_button_pressed() -> void:
 	if not skill_menu_open:
@@ -142,4 +135,3 @@ func _on_skill_4_button_pressed() -> void:
 	if skill_4_required_energy > energy:
 		return
 	hero_move.emit(6, hero_id)
-	emit_change_tab()

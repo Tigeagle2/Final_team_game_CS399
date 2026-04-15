@@ -29,6 +29,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 hero_ui=""
+player_battlers=""
+enemy_battlers=""
 
 [input]
 

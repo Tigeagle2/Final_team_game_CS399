@@ -11,10 +11,11 @@ script = ExtResource("1_m417t")
 [node name="TabContainer" type="TabContainer" parent="."]
 unique_name_in_owner = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jqbxl")
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 
 [node name="empty_tab" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -34,7 +35,6 @@ metadata/_tab_index = 1
 
 [node name="hero_ui_2" parent="TabContainer" instance=ExtResource("2_nqjdu")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 hero_id = 1
 metadata/_tab_index = 2

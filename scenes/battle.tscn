@@ -25,7 +25,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(372, 186)
 
-[node name="Battler" type="Node2D" parent="hero_infight_1"]
+[node name="Battler" type="Node2D" parent="hero_infight_1" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
@@ -41,7 +41,7 @@ linked_node = NodePath("../Battler")
 unique_name_in_owner = true
 position = Vector2(371, 239)
 
-[node name="Battler" type="Node2D" parent="hero_infight_2"]
+[node name="Battler" type="Node2D" parent="hero_infight_2" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("9_6ni85"), ExtResource("8_22uqi"), ExtResource("7_03edq"), ExtResource("6_66ngm")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
@@ -57,7 +57,7 @@ linked_node = NodePath("../../hero_infight_3/Battler")
 unique_name_in_owner = true
 position = Vector2(375, 287)
 
-[node name="Battler" type="Node2D" parent="hero_infight_3"]
+[node name="Battler" type="Node2D" parent="hero_infight_3" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("6_66ngm"), ExtResource("8_22uqi")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
@@ -71,6 +71,10 @@ linked_node = NodePath("../Battler")
 
 [node name="enemy_1_marker" type="Marker2D" parent="."]
 position = Vector2(51, 241)
+
+[node name="temp_enemy_battler" type="Node2D" parent="enemy_1_marker" groups=["enemy_battlers"]]
+script = ExtResource("4_4k1nj")
+metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="enemy_2_marker" type="Marker2D" parent="."]
 position = Vector2(50, 297)
