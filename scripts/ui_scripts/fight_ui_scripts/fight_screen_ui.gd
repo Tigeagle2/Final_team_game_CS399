@@ -1,6 +1,6 @@
 extends Node2D
 ## Sends the info to the controller: index 0: attack, index 1: defend, index 2: run, index 3: skill 1, index 4: skill 2, index 5: skill 3, index 4: skill 4
-signal hero_moved(index: int, hero_num: int)
+signal hero_moved(index: int, hero_num: int, targets: Array[Battler])
 @onready var hero_ui_1 = %hero_ui_1
 @onready var hero_ui_2 = %hero_ui_2
 @onready var hero_ui_3 = %hero_ui_3

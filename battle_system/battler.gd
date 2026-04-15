@@ -11,7 +11,7 @@ var energy: float
 
 @export_category("MOVES")
 @export var move_array: Array[Move]
-
+signal health_updated
 var selected_move: Move
 var selected_targets: Array[Battler]
 
@@ -42,4 +42,3 @@ func heal(value: float):
 
 func defend():
 	defending = true
-
