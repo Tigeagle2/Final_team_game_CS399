@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=13 format=3 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://scripts/battle.gd" id="1_lpir7"]
@@ -11,9 +11,12 @@
 [ext_resource type="Script" uid="uid://cuyg0w6vqilaa" path="res://battle_system/move.gd" id="7_f4pi3"]
 [ext_resource type="Resource" uid="uid://bsoaps4spaalm" path="res://Resource Files/temp_move_3.tres" id="8_22uqi"]
 [ext_resource type="Resource" uid="uid://day8nf58cjys6" path="res://Resource Files/temp_move_4.tres" id="9_6ni85"]
+[ext_resource type="PackedScene" uid="uid://dfxjl4e74c0se" path="res://scenes/ui_scenes/health_bar.tscn" id="10_03edq"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_lpir7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="fight_screen_ui" parent="." instance=ExtResource("1_dn72j")]
 unique_name_in_owner = true
@@ -27,6 +30,13 @@ script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
+[node name="health_bar" parent="hero_infight_1" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
+offset_left = -55.0
+offset_top = 9.0
+offset_right = -55.0
+offset_bottom = 9.0
+linked_node = NodePath("../Battler")
+
 [node name="hero_infight_2" parent="." instance=ExtResource("3_a12nh")]
 unique_name_in_owner = true
 position = Vector2(371, 239)
@@ -35,6 +45,13 @@ position = Vector2(371, 239)
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("9_6ni85"), ExtResource("8_22uqi"), ExtResource("7_03edq"), ExtResource("6_66ngm")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
+
+[node name="health_bar" parent="hero_infight_2" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
+offset_left = -53.0
+offset_top = 7.0
+offset_right = -53.0
+offset_bottom = 7.0
+linked_node = NodePath("../../hero_infight_3/Battler")
 
 [node name="hero_infight_3" parent="." instance=ExtResource("4_lpir7")]
 unique_name_in_owner = true
@@ -45,4 +62,18 @@ script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([null, null, ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("6_66ngm"), ExtResource("8_22uqi")])
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="health_bar" parent="hero_infight_3" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
+offset_left = -50.0
+offset_top = 9.0
+offset_right = -50.0
+offset_bottom = 9.0
+linked_node = NodePath("../Battler")
+
+[node name="enemy_1_marker" type="Marker2D" parent="."]
+position = Vector2(51, 241)
+
+[node name="enemy_2_marker" type="Marker2D" parent="."]
+position = Vector2(50, 297)
+
+[node name="enemy_3_marker" type="Marker2D" parent="."]
+position = Vector2(51, 195)

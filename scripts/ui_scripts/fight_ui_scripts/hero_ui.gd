@@ -22,42 +22,29 @@ var skill_4_required_energy: int = 1
 signal hero_move(index: int, hero_num: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	setup_menu()
+	%skill_menu.modulate.a = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-func setup_menu():
-	%skill_menu.modulate.a = 0
-	if hero_id == 0:
-		%skill_1_button.set_text("hero 1 skill 1")
-		%skill_2_button.set_text("hero 1 skill 2")
-		%skill_3_button.set_text("hero 1 skill 3")
-		%skill_4_button.set_text("hero 1 skill 4")
-	elif hero_id == 1:
-		%skill_1_button.set_text("hero 2 skill 1")
-		%skill_2_button.set_text("hero 2 skill 2")
-		%skill_3_button.set_text("hero 2 skill 3")
-		%skill_4_button.set_text("hero 2 skill 4")
-	elif hero_id == 2:
-		%skill_1_button.set_text("hero 3 skill 1")
-		%skill_2_button.set_text("hero 3 skill 2")
-		%skill_3_button.set_text("hero 3 skill 3")
-		%skill_4_button.set_text("hero 3 skill 4")
-	else:
-		print("invalid hero selection")
-		get_tree().quit(1843)
-	
 func setup_battler():
 	if battler == null:
 		return
 	for i in range(battler.move_array.size()):
 		var move_resource = battler.move_array[i]
 		match i:
-			2: skill_1_required_energy = move_resource.energy_cost
-			3: skill_2_required_energy = move_resource.energy_cost
-			4: skill_3_required_energy = move_resource.energy_cost
-			5: skill_4_required_energy = move_resource.energy_cost
+			2: 
+				skill_1_required_energy = move_resource.energy_cost
+				%skill_1_button.set_text(move_resource.move_name)
+			3: 
+				skill_2_required_energy = move_resource.energy_cost
+				%skill_2_button.set_text(move_resource.move_name)
+			4: 
+				skill_3_required_energy = move_resource.energy_cost
+				%skill_3_button.set_text(move_resource.move_name)
+			5: 
+				skill_4_required_energy = move_resource.energy_cost
+				%skill_4_button.set_text(move_resource.move_name)
 	%skill_1_button/energy_label.set_text(str(skill_1_required_energy))
 	%skill_2_button/energy_label.set_text(str(skill_2_required_energy))
 	%skill_3_button/energy_label.set_text(str(skill_3_required_energy))

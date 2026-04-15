@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_bu8x0")
+move_name = "test 4"
 energy_cost = 47
 metadata/_custom_type_script = "uid://cuyg0w6vqilaa"

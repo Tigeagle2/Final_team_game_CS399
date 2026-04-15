@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 func change_current_tab():
 	if %TabContainer.current_tab == %TabContainer.get_tab_count() - 1:
 		%TabContainer.set_current_tab(0)
-		# Put code that sends the attacks to the turn controller here, or call a function
 	else:
 		%TabContainer.set_current_tab(%TabContainer.current_tab + 1)
 	if %TabContainer.get_current_tab_control().has_method("input_focus") && Input.get_connected_joypads().size() > 0:
@@ -29,7 +28,7 @@ func change_current_tab():
 func on_change_tab():
 	change_current_tab()
 
-
+#temp function. to be replaced once the battle system gets implimented. will be replaced by code that forces a tab change at the end of a turn
 func _on_button_pressed() -> void:
 	change_current_tab()
 

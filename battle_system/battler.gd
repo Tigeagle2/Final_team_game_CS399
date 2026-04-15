@@ -2,7 +2,7 @@ class_name Battler extends Node2D
 
 @export_category("STATS")
 @export var max_health: float
-var health: float
+var health: float = 50
 @export var max_energy: float
 var energy: float
 @export var speed: float
@@ -13,7 +13,7 @@ var energy: float
 @export var move_array: Array[Move]
 
 var selected_move: Move
-
+signal health_updated
 func _ready():
 	pass
 

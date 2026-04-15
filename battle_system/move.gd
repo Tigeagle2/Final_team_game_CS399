@@ -1,5 +1,6 @@
 class_name Move extends Resource
 
+@export var move_name: String
 @export var animation_name: StringName
 @export var rebound_animation_name: StringName
 @export var target_animation_name: StringName
