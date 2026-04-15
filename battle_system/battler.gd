@@ -13,13 +13,33 @@ var energy: float
 @export var move_array: Array[Move]
 
 var selected_move: Move
+var selected_targets: Array[Battler]
+
+var defending: bool
 
 func _ready():
 	pass
 
-func select_move(index: int):
+func select_move(index: int,targets: Array[Battler]):
+	defending = false
 	selected_move = weakref(move_array[index])
+	selected_targets = targets
 
 func play_animation(animation_name: StringName):
 	# play an animation for the battler here
-	pass
+	var animator: AnimationPlayer = %AnimationPlayer
+
+	animator.play(animation_name)
+
+func damage(value: float):
+	if defending:
+		health -= (value/defense) / 2
+	else:
+		health -= value/defense
+
+func heal(value: float):
+	health += value
+
+func defend():
+	defending = true
+
