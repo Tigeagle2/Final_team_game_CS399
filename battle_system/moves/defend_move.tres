@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Defend" load_steps=2 format=3 uid="uid://ch7yj76imhyxh"]
+
+[ext_resource type="Script" uid="uid://cpyq6audluci5" path="res://battle_system/move scripts/defend.gd" id="1_35058"]
+
+[resource]
+script = ExtResource("1_35058")
+move_name = "Defend"
+animation_name = &"defend"
+speed_mult = 5.0
+same_team = true
+all_members = true
+metadata/_custom_type_script = "uid://cpyq6audluci5"

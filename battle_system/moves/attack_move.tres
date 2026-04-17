@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://dqx2scgu1wvjl"]
+
+[ext_resource type="Script" uid="uid://b2eks6680t421" path="res://battle_system/move scripts/attack.gd" id="1_pu7mg"]
+
+[resource]
+script = ExtResource("1_pu7mg")
+metadata/_custom_type_script = "uid://b2eks6680t421"

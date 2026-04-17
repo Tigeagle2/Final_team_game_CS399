@@ -30,15 +30,23 @@ func play_animation(animation_name: StringName):
 	var animator: AnimationPlayer = %AnimationPlayer
 
 	animator.play(animation_name)
+	await animator.animation_finished
+	print('Battler played animation')
 
 func damage(value: float):
 	if defending:
 		health -= (value/defense) / 2
+		print('Damaged battler by ', (value/defense) / 2)
 	else:
 		health -= value/defense
+		print("Damaged battler by ", value/defense)
+	health_updated.emit()
 
 func heal(value: float):
 	health += value
+	print("healed battler by ", value)
+	health_updated.emit()
 
 func defend():
 	defending = true
+	print('Battler started defending!')
