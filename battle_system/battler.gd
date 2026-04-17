@@ -20,7 +20,7 @@ var defending: bool
 func _ready():
 	pass
 
-func select_move(index: int,targets: Array[Battler]):
+func select_move(index: int, targets: Array[Battler]):
 	defending = false
 	selected_move = weakref(move_array[index])
 	selected_targets = targets

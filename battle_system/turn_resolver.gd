@@ -37,4 +37,16 @@ func _on_moves_decided(team_controller: TeamController):
 
 func resolve_turn():
 	print('Resolving turn...')
+	var all_battlers: Array[Battler]
+	for team_controller in teams_dict.keys():
+		all_battlers.append(team_controller.battler_array)
+	
+	# this (hopefully) sorts the array based on speed
+	all_battlers.sort_custom(_sort_by_speed)
+
+	for battler in all_battlers:
+		await battler.selected_move.resolve_move(battler, battler.selected_targets)
 	turn_resolved.emit()
+
+func _sort_by_speed(x: Battler, y: Battler) -> bool:
+	return x.speed * x.selected_move.speed_mult < y.speed * y.selected_move.speed_mult
