@@ -1,6 +1,7 @@
 extends Node2D
 
 var all_battlers: Array[Battler] = []
+@export var turn_resolver: Node
 ## Sends the info to the controller:
 ## index 0: attack, index 1: defend, index 2: run, index 3: skill 1, index 4: skill 2, index 5: skill 3, index 4: skill 4
 ## Array 0: hero 1, Array 1: hero 2, array 2: hero 3, array 3: enemy 1, and so forth
@@ -13,6 +14,7 @@ var hero_num_stored = null
 var target = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	turn_resolver.turn_resolved.connect(_on_turn_finished)
 	call_deferred("retrieve_all_battlers")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -98,9 +100,13 @@ func target_selection():
 	if target == null:
 		print("no target selected")
 		return
+	print(target)
+	print(target_array)
 	if target in target_array:
 		hero_moved.emit(move_index_stored, hero_num_stored, [target])
 		change_current_tab()
+	else: 
+		print("invalid target")
 
 
 func _on_target_button_hero_1_pressed() -> void:
@@ -126,3 +132,5 @@ func _on_target_button_enemy_2_pressed() -> void:
 func _on_target_button_enemy_3_pressed() -> void:
 	target = all_battlers[5]
 	target_selection()
+func _on_turn_finished():
+	change_current_tab()

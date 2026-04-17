@@ -103,14 +103,14 @@ func _on_skills_button_pressed() -> void:
 	toggle_skill_menu()
 
 func _on_run_button_pressed() -> void:
-	hero_move.emit(2, hero_id)
+	pass
 
 func _on_skill_1_button_pressed() -> void:
 	if not skill_menu_open:
 		return
 	if skill_1_required_energy > energy:
 		return
-	hero_move.emit(3, hero_id)
+	hero_move.emit(2, hero_id)
 
 
 func _on_skill_2_button_pressed() -> void:
@@ -118,7 +118,7 @@ func _on_skill_2_button_pressed() -> void:
 		return
 	if skill_2_required_energy > energy:
 		return
-	hero_move.emit(4, hero_id)
+	hero_move.emit(3, hero_id)
 
 
 func _on_skill_3_button_pressed() -> void:
@@ -126,7 +126,7 @@ func _on_skill_3_button_pressed() -> void:
 		return
 	if skill_3_required_energy > energy:
 		return
-	hero_move.emit(5, hero_id)
+	hero_move.emit(4, hero_id)
 
 
 func _on_skill_4_button_pressed() -> void:
@@ -134,4 +134,4 @@ func _on_skill_4_button_pressed() -> void:
 		return
 	if skill_4_required_energy > energy:
 		return
-	hero_move.emit(6, hero_id)
+	hero_move.emit(5, hero_id)

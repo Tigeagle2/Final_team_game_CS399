@@ -20,6 +20,7 @@
 script = ExtResource("1_lpir7")
 
 [node name="TurnResolver" type="Node" parent="." node_paths=PackedStringArray("teams_array")]
+unique_name_in_owner = true
 script = ExtResource("2_22uqi")
 teams_array = [NodePath("../PlayerController"), NodePath("../EnemyController")]
 metadata/_custom_type_script = "uid://b01l4oduhqk8g"
@@ -30,14 +31,16 @@ player_ui = NodePath("../fight_screen_ui")
 battler_array = [NodePath("../hero_infight_1/Battler"), NodePath("../hero_infight_2/Battler"), NodePath("../hero_infight_3/Battler")]
 metadata/_custom_type_script = "uid://b2tkn4g3ycy84"
 
-[node name="EnemyController" type="Node" parent="."]
+[node name="EnemyController" type="Node" parent="." node_paths=PackedStringArray("battler_array")]
 script = ExtResource("4_ekamt")
+battler_array = [NodePath("../enemy_1_marker/temp_enemy_battler")]
 metadata/_custom_type_script = "uid://cycclnep1466q"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="fight_screen_ui" parent="." instance=ExtResource("1_dn72j")]
+[node name="fight_screen_ui" parent="." node_paths=PackedStringArray("turn_resolver") instance=ExtResource("1_dn72j")]
 unique_name_in_owner = true
+turn_resolver = NodePath("../TurnResolver")
 
 [node name="hero_infight_1" parent="." instance=ExtResource("2_th188")]
 unique_name_in_owner = true
