@@ -25,16 +25,16 @@ script = ExtResource("2_22uqi")
 teams_array = [NodePath("../PlayerController"), NodePath("../EnemyController")]
 metadata/_custom_type_script = "uid://b01l4oduhqk8g"
 
+[node name="EnemyController" type="Node" parent="." node_paths=PackedStringArray("battler_array")]
+script = ExtResource("4_ekamt")
+battler_array = [NodePath("../enemy_1_marker/temp_enemy_battler")]
+metadata/_custom_type_script = "uid://cycclnep1466q"
+
 [node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player_ui", "battler_array")]
 script = ExtResource("3_vceff")
 player_ui = NodePath("../fight_screen_ui")
 battler_array = [NodePath("../hero_infight_1/Battler"), NodePath("../hero_infight_2/Battler"), NodePath("../hero_infight_3/Battler")]
 metadata/_custom_type_script = "uid://b2tkn4g3ycy84"
-
-[node name="EnemyController" type="Node" parent="." node_paths=PackedStringArray("battler_array")]
-script = ExtResource("4_ekamt")
-battler_array = [NodePath("../enemy_1_marker/temp_enemy_battler")]
-metadata/_custom_type_script = "uid://cycclnep1466q"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

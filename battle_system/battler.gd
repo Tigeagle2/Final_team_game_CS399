@@ -21,6 +21,7 @@ func _ready():
 	pass
 
 func select_move(index: int, targets: Array[Battler]):
+	print("Battler Selected Move!")
 	defending = false
 	selected_move = weakref(move_array[index])
 	selected_targets = targets

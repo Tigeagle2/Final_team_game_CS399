@@ -4,8 +4,11 @@ signal battler_selected_move
 
 @export var player_ui: Node2D
 
-func decide_moves():
+func _ready() -> void:
 	player_ui.hero_moved.connect(_on_hero_moved)
+	decide_moves()
+
+func decide_moves():
 
 	for battler in battler_array:
 		await battler_selected_move
@@ -13,6 +16,7 @@ func decide_moves():
 	moves_decided.emit(self)
 
 func _on_hero_moved(move_index: int, battler_index: int, battler_array: Array[Battler]):
+	print(battler_index, " has been called to move!")
 	var battler: Battler = battler_array[battler_index]
 	battler.select_move(move_index,battler_array)
 	battler_selected_move.emit()
