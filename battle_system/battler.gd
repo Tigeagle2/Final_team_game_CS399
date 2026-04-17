@@ -23,7 +23,8 @@ func _ready():
 func select_move(index: int, targets: Array[Battler]):
 	print("Battler Selected Move!")
 	defending = false
-	selected_move = weakref(move_array[index])
+	print(move_array)
+	selected_move = move_array[index]
 	selected_targets = targets
 
 func play_animation(animation_name: StringName):

@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	pass
 func retrieve_all_battlers():
 	await get_tree().create_timer(0.1).timeout
-	all_battlers.clear()
+	#all_battlers.clear()
 	var battler_nodes = get_tree().get_nodes_in_group("enemy_battlers")
 	all_battlers.append(hero_ui_1.battler)
 	all_battlers.append(hero_ui_2.battler)
@@ -81,7 +81,7 @@ func _on_hero_ui_3_1_hero_move(index: int, hero_num: int) -> void:
 	hero_num_stored = hero_num
 	target_selection()
 func target_selection():
-	var target_array
+	var target_array: Array[Battler] = []
 	if move_index_stored == null || hero_num_stored == null:
 		print("no move selected or invalided hero number")
 		return
@@ -103,7 +103,11 @@ func target_selection():
 	print(target)
 	print(target_array)
 	if target in target_array:
-		hero_moved.emit(move_index_stored, hero_num_stored, [target])
+		#print(all_battlers[hero_num_stored].move_array)
+		var argument_array: Array[Battler] = []
+		argument_array.append(target)
+		
+		hero_moved.emit(move_index_stored, hero_num_stored, argument_array)
 		change_current_tab()
 	else: 
 		print("invalid target")
