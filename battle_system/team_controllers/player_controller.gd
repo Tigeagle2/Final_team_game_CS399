@@ -16,3 +16,4 @@ func _on_hero_moved(move_index: int, battler_index: int, battler_array: Array[Ba
 	var battler: Battler = battler_array[battler_index]
 	battler.select_move(move_index,battler_array)
 	battler_selected_move.emit()
+	print("Battler move decided: ", battler_index)

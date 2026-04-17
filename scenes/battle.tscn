@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=16 format=3 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://scripts/battle.gd" id="1_lpir7"]
+[ext_resource type="Script" uid="uid://b01l4oduhqk8g" path="res://battle_system/turn_resolver.gd" id="2_22uqi"]
 [ext_resource type="PackedScene" uid="uid://bt5gfmvckcd8n" path="res://scenes/hero_infight_scenes/hero_infight_1.tscn" id="2_th188"]
 [ext_resource type="PackedScene" uid="uid://cde8qxocuq6p" path="res://scenes/hero_infight_scenes/hero_infight_2.tscn" id="3_a12nh"]
+[ext_resource type="Script" uid="uid://b2tkn4g3ycy84" path="res://battle_system/team_controllers/player_controller.gd" id="3_vceff"]
 [ext_resource type="Script" uid="uid://dyu8a5asjyy4h" path="res://battle_system/battler.gd" id="4_4k1nj"]
+[ext_resource type="Script" uid="uid://cycclnep1466q" path="res://battle_system/team_controllers/enemy_controller.gd" id="4_ekamt"]
 [ext_resource type="PackedScene" uid="uid://hlns22a5nuow" path="res://scenes/hero_infight_scenes/hero_infight_3.tscn" id="4_lpir7"]
 [ext_resource type="Resource" uid="uid://dvbhgtpinhj2p" path="res://Resource Files/temp_move_1.tres" id="6_66ngm"]
 [ext_resource type="Resource" uid="uid://chhwlh7ntnxqb" path="res://Resource Files/temp_move_2.tres" id="7_03edq"]
@@ -15,6 +18,21 @@
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_lpir7")
+
+[node name="TurnResolver" type="Node" parent="." node_paths=PackedStringArray("teams_array")]
+script = ExtResource("2_22uqi")
+teams_array = [NodePath("../PlayerController"), NodePath("../EnemyController")]
+metadata/_custom_type_script = "uid://b01l4oduhqk8g"
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player_ui", "battler_array")]
+script = ExtResource("3_vceff")
+player_ui = NodePath("../fight_screen_ui")
+battler_array = [NodePath("../hero_infight_1/Battler"), NodePath("../hero_infight_2/Battler"), NodePath("../hero_infight_3/Battler")]
+metadata/_custom_type_script = "uid://b2tkn4g3ycy84"
+
+[node name="EnemyController" type="Node" parent="."]
+script = ExtResource("4_ekamt")
+metadata/_custom_type_script = "uid://cycclnep1466q"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
