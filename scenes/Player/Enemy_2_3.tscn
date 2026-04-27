@@ -182,7 +182,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lujal")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
 "speed": 10.0
 }]
@@ -192,4 +192,4 @@ script = ExtResource("1_wp0na")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wp0na")
-animation = &"throw"
+animation = &"idle"

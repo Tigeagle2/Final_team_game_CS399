@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cde8qxocuq6p"]
+[gd_scene load_steps=15 format=3 uid="uid://cde8qxocuq6p"]
+
+[ext_resource type="Script" uid="uid://ctbk7fasyv4be" path="res://scripts/battle/malachi-battle.gd" id="1_7pmyr"]
+[ext_resource type="Texture2D" uid="uid://dtb6b0ki1atp0" path="res://assets/Sprites/Malachi.png" id="1_n753x"]
 
 [sub_resource type="Gradient" id="Gradient_g366a"]
 offsets = PackedFloat32Array(0, 0.66)
@@ -9,25 +12,104 @@ gradient = SubResource("Gradient_g366a")
 fill = 1
 fill_from = Vector2(0.4906542, 0.5046729)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pmyr"]
+atlas = ExtResource("1_n753x")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxk0t"]
+atlas = ExtResource("1_n753x")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brcyn"]
+atlas = ExtResource("1_n753x")
+region = Rect2(369, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdgid"]
+atlas = ExtResource("1_n753x")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxvsf"]
+atlas = ExtResource("1_n753x")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv21m"]
+atlas = ExtResource("1_n753x")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaq1w"]
+atlas = ExtResource("1_n753x")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72ii7"]
+atlas = ExtResource("1_n753x")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdb2u"]
+atlas = ExtResource("1_n753x")
+region = Rect2(369, 1, 45, 45)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g366a"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"heal",
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pmyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxk0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcyn")
+}],
+"loop": false,
+"name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdgid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxvsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv21m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaq1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ii7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdb2u")
+}],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="hero_infight" type="Node2D"]
+script = ExtResource("1_7pmyr")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.9999998, 0.8053361, 0.63593, 1)
 texture = SubResource("GradientTexture2D_n753x")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g366a")
-animation = &"heal"
+animation = &"attack"
+flip_h = true
+
+[connection signal="animation_finished" from="Sprites" to="." method="_on_animation_finished"]

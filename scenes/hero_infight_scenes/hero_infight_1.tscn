@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt5gfmvckcd8n"]
+[gd_scene load_steps=23 format=3 uid="uid://bt5gfmvckcd8n"]
 
 [ext_resource type="Texture2D" uid="uid://db87jsdlohvyt" path="res://assets/Sprites/Max.png" id="1_g2sn8"]
+[ext_resource type="Script" uid="uid://qmeh15v4415i" path="res://scripts/battle/max-battle.gd" id="1_xn0r3"]
 
 [sub_resource type="Gradient" id="Gradient_p0vlq"]
 offsets = PackedFloat32Array(0, 0.66)
@@ -10,30 +11,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_p0vlq")
 fill = 1
 fill_from = Vector2(0.4906542, 0.5046729)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xn0r3"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(277, 1, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tn3ev"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(323, 1, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rho1t"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(277, 1, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k5q8r"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(323, 1, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8bik"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(277, 1, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jiviu"]
-atlas = ExtResource("1_g2sn8")
-region = Rect2(369, 1, 45, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h0t4"]
 atlas = ExtResource("1_g2sn8")
@@ -63,6 +40,30 @@ region = Rect2(507, 47, 45, 45)
 atlas = ExtResource("1_g2sn8")
 region = Rect2(553, 47, 45, 45)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn0r3"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn3ev"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rho1t"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5q8r"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8bik"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiviu"]
+atlas = ExtResource("1_g2sn8")
+region = Rect2(369, 1, 45, 45)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_afppc"]
 atlas = ExtResource("1_g2sn8")
 region = Rect2(277, 93, 45, 45)
@@ -81,6 +82,32 @@ region = Rect2(415, 93, 45, 45)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_icj1f"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h0t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy3tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c22s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpc5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwpck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3knms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssf8j")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xn0r3")
@@ -106,32 +133,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2h0t4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xy3tp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c22s4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vpc5i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dwpck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3knms")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ssf8j")
-}],
-"loop": false,
-"name": &"recover",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_afppc")
 }, {
 "duration": 1.0,
@@ -144,16 +145,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_mqrjg")
 }],
 "loop": false,
-"name": &"slash",
+"name": &"recover",
 "speed": 5.0
 }]
 
 [node name="hero_infight" type="Node2D"]
+script = ExtResource("1_xn0r3")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.9999998, 0.8053361, 0.63593, 1)
 texture = SubResource("GradientTexture2D_g2sn8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_icj1f")
-animation = &"idle"
+animation = &"recover"
+flip_h = true
+
+[connection signal="animation_finished" from="Sprites" to="." method="_on_animation_finished"]

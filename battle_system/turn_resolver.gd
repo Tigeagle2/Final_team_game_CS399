@@ -51,10 +51,13 @@ func resolve_turn():
 			await battler.selected_move.resolve_move(battler, battler.selected_targets)
 		if check_player_win():
 			print("player won")
+			get_node_or_null("/root/MainLevel").end_battle()
 			return
 		if check_enemy_win():
 			print("enemy won")
+			get_node_or_null("/root/MainLevel").game_over()
 			return
+		await get_tree().create_timer(1.0).timeout
 	clear_dict_bools()
 
 	turn_resolved.emit()
@@ -64,6 +67,20 @@ func _sort_by_speed(x: Battler, y: Battler) -> bool:
 	return x.speed * x.selected_move.speed_mult < y.speed * y.selected_move.speed_mult
 
 func check_enemy_win() -> bool:
+	for battler in teams_array[0].battler_array:
+		if battler.health > 0:
+			return false
+	
+	return true
+
+func check_player_win() -> bool:
+	for battler in teams_array[1].battler_array:
+		if battler.health > 0:
+			return false
+	
+	return true
+
+'''func check_enemy_win() -> bool:
 	var dead := true
 	for battler in teams_array[0].battler_array:
 		if battler.health > 0:
@@ -77,4 +94,4 @@ func check_player_win():
 		if battler.health > 0:
 			dead = false
 		
-	return !dead
+	return !dead'''

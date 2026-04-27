@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=27 format=4 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://battle.gd" id="1_lpir7"]
@@ -17,8 +17,10 @@
 [ext_resource type="Resource" uid="uid://day8nf58cjys6" path="res://Resource Files/temp_move_4.tres" id="9_6ni85"]
 [ext_resource type="Resource" uid="uid://dqx2scgu1wvjl" path="res://battle_system/moves/attack_move.tres" id="9_ekamt"]
 [ext_resource type="PackedScene" uid="uid://dfxjl4e74c0se" path="res://scenes/ui_scenes/health_bar.tscn" id="10_03edq"]
+[ext_resource type="FontFile" uid="uid://dnixln2jopcci" path="res://VixalFont3.ttf" id="18_h4dll"]
+[ext_resource type="Script" uid="uid://iqg3c1qtqmxy" path="res://scripts/bridge.gd" id="18_p0caf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4dll"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0caf"]
 texture = ExtResource("2_djc8l")
 0:3/0 = 0
 0:0/0 = 0
@@ -130,9 +132,9 @@ texture = ExtResource("2_djc8l")
 4:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_p0caf"]
-sources/1 = SubResource("TileSetAtlasSource_h4dll")
+sources/1 = SubResource("TileSetAtlasSource_p0caf")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_djc8l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61i1y"]
 texture = ExtResource("2_djc8l")
 0:0/0 = 0
 1:0/0 = 0
@@ -248,20 +250,39 @@ texture = ExtResource("2_djc8l")
 7:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h4dll"]
-sources/0 = SubResource("TileSetAtlasSource_djc8l")
+sources/0 = SubResource("TileSetAtlasSource_61i1y")
 
-[sub_resource type="Gradient" id="Gradient_p0caf"]
+[sub_resource type="Gradient" id="Gradient_saiin"]
 offsets = PackedFloat32Array(0, 0.68666667)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_61i1y"]
-gradient = SubResource("Gradient_p0caf")
+gradient = SubResource("Gradient_saiin")
 fill = 1
 fill_from = Vector2(0.5, 0.48598132)
 
-[node name="battle" type="Node2D"]
-z_index = 99
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0caf"]
+content_margin_left = 6.0
+content_margin_bottom = 0.0
+bg_color = Color(0.014640024, 0.045765504, 0.084902786, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[node name="battle" type="Node2D" node_paths=PackedStringArray("text_box", "enemy_1_marker", "enemy_2_marker", "enemy_3_marker", "fight_screen")]
 script = ExtResource("1_lpir7")
+text_box = NodePath("PanelContainer/BattleText")
+enemy_1_marker = NodePath("enemy_1_marker")
+enemy_2_marker = NodePath("enemy_2_marker")
+enemy_3_marker = NodePath("enemy_3_marker")
+fight_screen = NodePath("fight_screen_ui")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -328,102 +349,193 @@ turn_resolver = NodePath("../TurnResolver")
 
 [node name="hero_infight_1" parent="." instance=ExtResource("2_th188")]
 unique_name_in_owner = true
-position = Vector2(372, 186)
+position = Vector2(372, 182)
 
 [node name="Battler" type="Node2D" parent="hero_infight_1" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
-move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("6_66ngm"), ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
+max_health = 125.0
+max_energy = 100.0
+speed = 2.0
+strength = 1.5
+defense = 1.5
+move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
+type = "attacker"
+battler_name = "Max"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="hero_infight_1" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
-offset_left = -55.0
-offset_top = 9.0
-offset_right = -55.0
-offset_bottom = 9.0
+offset_left = -54.0
+offset_top = 13.0
+offset_right = -54.0
+offset_bottom = 13.0
 linked_node = NodePath("../Battler")
+
+[node name="Label" type="Label" parent="hero_infight_1"]
+offset_left = 29.0
+offset_top = -1.0
+offset_right = 69.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Max"
 
 [node name="hero_infight_2" parent="." instance=ExtResource("3_a12nh")]
 unique_name_in_owner = true
-position = Vector2(371, 239)
+position = Vector2(371, 233)
 
 [node name="Battler" type="Node2D" parent="hero_infight_2" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
-move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("8_22uqi"), ExtResource("7_03edq"), ExtResource("6_66ngm")])
+max_health = 85.0
+max_energy = 100.0
+speed = 3.0
+strength = 1.5
+move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
+type = "healer"
+battler_name = "Malachi"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="hero_infight_2" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
 offset_left = -53.0
-offset_top = 7.0
+offset_top = 13.0
 offset_right = -53.0
-offset_bottom = 7.0
+offset_bottom = 13.0
 linked_node = NodePath("../../hero_infight_3/Battler")
+
+[node name="Label" type="Label" parent="hero_infight_2"]
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 86.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+text = "Malachi"
 
 [node name="hero_infight_3" parent="." instance=ExtResource("4_lpir7")]
 unique_name_in_owner = true
-position = Vector2(375, 287)
+position = Vector2(375, 283)
 
 [node name="Battler" type="Node2D" parent="hero_infight_3" groups=["player_battlers"]]
 script = ExtResource("4_4k1nj")
+max_health = 125.0
+max_energy = 100.0
+speed = 3.0
+strength = 1.2
+defense = 1.5
 move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("7_03edq"), ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("6_66ngm"), ExtResource("8_22uqi")])
+type = "attacker"
+battler_name = "Mari"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="hero_infight_3" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
-offset_left = -50.0
-offset_top = 9.0
-offset_right = -50.0
-offset_bottom = 9.0
+offset_left = -57.0
+offset_top = 13.0
+offset_right = -57.0
+offset_bottom = 13.0
 linked_node = NodePath("../Battler")
 
-[node name="enemy_1_marker" type="Marker2D" parent="."]
-position = Vector2(51, 241)
+[node name="Label" type="Label" parent="hero_infight_3"]
+offset_left = 26.0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+text = "Mari"
+
+[node name="enemy_1_marker" type="Marker2D" parent="." node_paths=PackedStringArray("battler", "name_plate")]
+position = Vector2(56, 179)
+script = ExtResource("18_p0caf")
+battler = NodePath("Enemy1")
+name_plate = NodePath("Label")
 
 [node name="Enemy1" type="Node2D" parent="enemy_1_marker" groups=["enemy_battlers"]]
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt")])
+type = "enemy"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="enemy_1_marker" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
-offset_left = -50.0
-offset_top = 12.0
-offset_right = -50.0
-offset_bottom = 12.0
+offset_left = -48.0
+offset_top = 16.0
+offset_right = -48.0
+offset_bottom = 16.0
 linked_node = NodePath("../Enemy1")
 
-[node name="enemy_2_marker" type="Marker2D" parent="."]
-position = Vector2(50, 297)
+[node name="Label" type="Label" parent="enemy_1_marker"]
+offset_left = 61.0
+offset_top = 15.0
+offset_right = 101.0
+offset_bottom = 38.0
+scale = Vector2(0.5, 0.5)
+
+[node name="enemy_2_marker" type="Marker2D" parent="." node_paths=PackedStringArray("battler", "name_plate")]
+position = Vector2(56, 234)
+script = ExtResource("18_p0caf")
+battler = NodePath("Enemy2")
+name_plate = NodePath("Label")
 
 [node name="Enemy2" type="Node2D" parent="enemy_2_marker" groups=["enemy_battlers"]]
-position = Vector2(275, -1)
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt")])
+type = "enemy"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="enemy_2_marker" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
-offset_left = -46.0
-offset_top = 14.0
-offset_right = -46.0
-offset_bottom = 14.0
+offset_left = -48.0
+offset_top = 16.0
+offset_right = -48.0
+offset_bottom = 16.0
 linked_node = NodePath("../Enemy2")
 
-[node name="enemy_3_marker" type="Marker2D" parent="."]
-position = Vector2(51, 195)
+[node name="Label" type="Label" parent="enemy_2_marker"]
+offset_left = 62.0
+offset_top = 15.0
+offset_right = 102.0
+offset_bottom = 38.0
+scale = Vector2(0.5, 0.5)
+text = "
+"
+
+[node name="enemy_3_marker" type="Marker2D" parent="." node_paths=PackedStringArray("battler", "name_plate")]
+position = Vector2(56, 280)
+script = ExtResource("18_p0caf")
+battler = NodePath("Enemy3")
+name_plate = NodePath("Label")
 
 [node name="Enemy3" type="Node2D" parent="enemy_3_marker" groups=["enemy_battlers"]]
 position = Vector2(-51, -195)
 script = ExtResource("4_4k1nj")
 move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt")])
+type = "enemy"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
 
 [node name="health_bar" parent="enemy_3_marker" node_paths=PackedStringArray("linked_node") instance=ExtResource("10_03edq")]
-offset_left = -52.0
-offset_top = 10.0
-offset_right = -52.0
-offset_bottom = 10.0
+offset_left = -48.0
+offset_top = 16.0
+offset_right = -48.0
+offset_bottom = 16.0
 linked_node = NodePath("../Enemy3")
+
+[node name="Label" type="Label" parent="enemy_3_marker"]
+offset_left = 61.0
+offset_top = 13.0
+offset_right = 101.0
+offset_bottom = 36.0
+scale = Vector2(0.5, 0.5)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.53990966, 0.47838974, 0.2899094, 1)
 blend_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 284.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p0caf")
+
+[node name="BattleText" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("18_h4dll")
+theme_override_font_sizes/normal_font_size = 8
 
 [connection signal="turn_resolved" from="TurnResolver" to="EnemyController" method="_on_turn_resolver_turn_resolved"]
 [connection signal="turn_resolved" from="TurnResolver" to="PlayerController" method="_on_turn_resolver_turn_resolved"]

@@ -11,6 +11,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ucv1e")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 321.0
+color = Color(0.009626719, 0.065491736, 0.11738274, 1)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 194.0

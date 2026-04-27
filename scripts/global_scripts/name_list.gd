@@ -1,0 +1,48 @@
+extends Node
+
+var names: Array[String] = [
+	"Logan",
+	"Axel",
+	"Matthew",
+	"Nala",
+	"Kane",
+	"Aiden",
+	"Alex",
+	"Oscar",
+	"William",
+	"Bob",
+	"Allen",
+	"Candice",
+	"Felix",
+	"Anna",
+	"Subaru",
+	"Hannah",
+	"Bolin",
+	"Dane",
+	"Petra",
+	"Colin",
+	"Dennis",
+	"Beatrice",
+	"Tanner",
+	"Vol",
+	"Matt",
+	"Peter",
+	"Garfiel",
+	"Leon",
+	"Shep",
+	"Olivia",
+	"Elijah",
+	"Cole",
+	"Boris",
+	"Wallace",
+	"Rex",
+	"Pixal",
+	"Holland",
+	"Jeffery",
+	"Javier",
+	"Alice",
+	"Riley"
+]
+
+func get_random_name() -> String:
+	return names[randi_range(0, len(names) - 1)]

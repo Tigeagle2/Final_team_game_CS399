@@ -11,6 +11,9 @@ Speed Hacks (Increases Speed by 5x) -> Shift + S
 Teleport to Final Area -> Shift + F
 '''
 
+var battles_won: int = 0
+var relative_pos: Vector2 = Vector2(0, 256)
+
 func _ready() -> void:
 	set_process(false)
 

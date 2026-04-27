@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_drta2")
-move_name = "test2"
+move_name = "Quick Slash"
+animation_name = &"slash"
 energy_cost = 25
+speed_mult = 5.0
 metadata/_custom_type_script = "uid://cuyg0w6vqilaa"

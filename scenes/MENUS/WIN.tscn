@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlrvy3gwbnulb"]
+
+[ext_resource type="FontFile" uid="uid://dnixln2jopcci" path="res://VixalFont3.ttf" id="1_a1o3a"]
+[ext_resource type="Script" uid="uid://c7dvjmc7kroij" path="res://scripts/menu_scripts/win.gd" id="1_os255"]
+[ext_resource type="AudioStream" uid="uid://c23c33w8ur4bu" path="res://scripts/sounds/SFX/click.mp3" id="3_ugi8i"]
+
+[node name="Node2D" type="Control" node_paths=PackedStringArray("cover", "click_sound")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_os255")
+scene_transit_path = "res://scenes/MENUS/MainMenuScene.tscn"
+cover = NodePath("Cover")
+default = true
+click_sound = NodePath("Click")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 63.0
+offset_right = 331.0
+offset_bottom = 124.0
+theme_override_fonts/normal_font = ExtResource("1_a1o3a")
+theme_override_font_sizes/normal_font_size = 32
+text = "YOU WIN!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 183.0
+offset_right = 164.0
+offset_bottom = 214.0
+text = "Restart"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 183.0
+offset_right = 401.0
+offset_bottom = 214.0
+text = "Quit"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ugi8i")
+
+[node name="Cover" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 320.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Button" to="." method="on_restart_pressed"]
+[connection signal="pressed" from="Button2" to="." method="on_quit_pressed"]

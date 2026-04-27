@@ -4,6 +4,9 @@
 
 [resource]
 script = ExtResource("1_fnvmd")
-move_name = "Test 1"
-energy_cost = 70
+move_name = "Fast Slash"
+animation_name = &"slash"
+energy_cost = 50
+speed_mult = 0.5
+all_members = true
 metadata/_custom_type_script = "uid://cuyg0w6vqilaa"

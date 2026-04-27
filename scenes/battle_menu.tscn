@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://4rhtgrlhv5as"]
+
+[ext_resource type="Script" uid="uid://c1etw68mssmea" path="res://battle_system/battle_menu.gd" id="1_ir060"]
+[ext_resource type="PackedScene" uid="uid://cofoqc5v6bsab" path="res://scenes/battle.tscn" id="2_ktfbc"]
+
+[node name="BattleMenu" type="Control" node_paths=PackedStringArray("battle_scene")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ir060")
+battle_scene = NodePath("battle")
+
+[node name="battle" parent="." instance=ExtResource("2_ktfbc")]

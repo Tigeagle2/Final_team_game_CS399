@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Final_team_game_CS399"
-run/main_scene="uid://ddvxwvdtku1rb"
+run/main_scene="uid://miol6kxeo6ua"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 cheats="*res://scripts/global_scripts/cheats.gd"
 BattleService="*res://battle_system/battle_service.gd"
 settings="*res://scripts/global_scripts/settings.gd"
+name_list="*res://scripts/global_scripts/name_list.gd"
 
 [display]
 

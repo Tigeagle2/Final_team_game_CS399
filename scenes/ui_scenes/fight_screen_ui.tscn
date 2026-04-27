@@ -5,14 +5,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqbxl"]
 
-[node name="fight_screen_ui" type="Node2D"]
+[node name="fight_screen_ui" type="Node2D" node_paths=PackedStringArray("enemy_1_button", "enemy_2_button", "enemy_3_button")]
 script = ExtResource("1_m417t")
+enemy_1_button = NodePath("target_button_container/target_button_enemy_1")
+enemy_2_button = NodePath("target_button_container/target_button_enemy_2")
+enemy_3_button = NodePath("target_button_container/target_button_enemy_3")
 
 [node name="target_button_container" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
-offset_left = 86.0
+offset_left = 46.0
 offset_top = 14.0
-offset_right = 502.0
+offset_right = 462.0
 offset_bottom = 45.0
 scale = Vector2(0.75, 0.75)
 alignment = 1
@@ -20,17 +23,17 @@ alignment = 1
 [node name="target_button_hero_1" type="Button" parent="target_button_container"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "hero 1"
+text = "Max"
 
 [node name="target_button_hero_2" type="Button" parent="target_button_container"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "hero 2"
+text = "Malachi"
 
 [node name="target_button_hero_3" type="Button" parent="target_button_container"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "hero 3"
+text = "Mari"
 
 [node name="target_button_enemy_1" type="Button" parent="target_button_container"]
 unique_name_in_owner = true

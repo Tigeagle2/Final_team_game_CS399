@@ -1,4 +1,4 @@
-class_name heal extends Move
+class_name Heal extends Move
 
 @export var heal_amount: float
 
