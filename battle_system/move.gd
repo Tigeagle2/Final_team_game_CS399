@@ -11,13 +11,16 @@ class_name Move extends Resource
 @export var same_team: bool = false
 @export var all_members: bool = false
 
-func resolve_move(owner: Battler, targets: Array[Battler]):
+func resolve_move(owner: Battler, targets: Array[Battler]) -> String:
+	var message: String
 	await owner.play_animation(animation_name)
-	await apply_change(owner, targets)
+	message = await apply_change(owner, targets)
 	for target in targets:
 		target.play_animation(target_animation_name)
 	await owner.play_animation(rebound_animation_name)
+	
+	return message
 
 
-func apply_change(owner: Battler, targets: Array[Battler]):
-	pass
+func apply_change(owner: Battler, targets: Array[Battler]) -> String:
+	return ""
