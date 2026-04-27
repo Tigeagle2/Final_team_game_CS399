@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://d27nwhfbxcrcm"]
 
 [ext_resource type="Script" uid="uid://wddir2cf2pkg" path="res://scripts/menu_scripts/options.gd" id="1_5gmal"]
-[ext_resource type="AudioStream" uid="uid://c23c33w8ur4bu" path="res://sounds/SFX/click.mp3" id="2_dbu8v"]
+[ext_resource type="AudioStream" uid="uid://c23c33w8ur4bu" path="res://scripts/sounds/SFX/click.mp3" id="2_dbu8v"]
 [ext_resource type="Texture2D" uid="uid://bg7md2nt41wdb" path="res://assets/ReturnIconNormal.png" id="3_dbu8v"]
 [ext_resource type="Texture2D" uid="uid://bv2a41ovb0dt0" path="res://assets/ReturnIconPress.png" id="4_81r5r"]
-[ext_resource type="Texture2D" uid="uid://uh7fyvkv75fr" path="res://assets/SliderIcon.png" id="4_bthii"]
+[ext_resource type="Texture2D" uid="uid://bsjm2qbpdlmoy" path="res://assets/SliderIcon.png" id="4_bthii"]
 [ext_resource type="Texture2D" uid="uid://bp4exa8pud1w2" path="res://assets/ToggleIconDisabled.png" id="4_l6ncd"]
 [ext_resource type="Texture2D" uid="uid://b2tsao7uknog6" path="res://assets/ToggleIconDisabledHover.png" id="5_4tjjh"]
 [ext_resource type="Texture2D" uid="uid://jyf2rxa2axpl" path="res://assets/SliderHover.png" id="5_bthii"]

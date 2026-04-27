@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2p04bl1vgd16"]
+
+[ext_resource type="Script" uid="uid://d1hqqbtjf1dpp" path="res://scripts/enemy.gd" id="1_xdpgl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xdpgl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"recover",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[node name="Enemy24" type="Node2D"]
+script = ExtResource("1_xdpgl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xdpgl")
+animation = &"recover"

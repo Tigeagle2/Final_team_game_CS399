@@ -1,5 +1,161 @@
-[gd_scene format=3 uid="uid://hlns22a5nuow"]
+[gd_scene load_steps=22 format=3 uid="uid://hlns22a5nuow"]
+
+[ext_resource type="Texture2D" uid="uid://cnbigvg3wnv2y" path="res://assets/Sprites/Mari.png" id="1_sg3ox"]
+
+[sub_resource type="Gradient" id="Gradient_sg3ox"]
+offsets = PackedFloat32Array(0, 0.66)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avtag"]
+gradient = SubResource("Gradient_sg3ox")
+fill = 1
+fill_from = Vector2(0.4906542, 0.5046729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avtag"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srvwq"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pll4f"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8q1"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xyp7"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl0qa"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(369, 1, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqcig"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(461, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1w8c"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(507, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f1xw"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(553, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ho8"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yudds"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obb0c"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnf6f"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kor3j"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h5vr"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohby5"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(369, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yrof"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(415, 47, 45, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q3qi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avtag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srvwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pll4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xyp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl0qa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqcig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1w8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f1xw")
+}],
+"loop": false,
+"name": &"recover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ho8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yudds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obb0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnf6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kor3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h5vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohby5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yrof")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [node name="hero_infight" type="Node2D"]
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.9999998, 0.8053361, 0.63593, 1)
+texture = SubResource("GradientTexture2D_avtag")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4q3qi")
+animation = &"idle"
+frame = 4
+frame_progress = 0.127203
