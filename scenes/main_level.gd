@@ -1,14 +1,20 @@
 extends Node2D
 
-<<<<<<< HEAD
 @export var battle_menu: Menu
 @export var cover: ColorRect
 @export var player: CharacterBody2D
 @export var bg_music: AudioStreamPlayer
 
+@onready var my_label = $Text/Text_to_appear/Label
+@onready var tutorial = $Text/Tutorial/Text
+@onready var tutorial_2 = $Text/Tutorial_2/Text
+
 var battle_menu_path: PackedScene = load("res://scenes/battle_menu.tscn")
 
 func _ready() -> void:
+	my_label.hide()
+	tutorial.hide()
+	tutorial_2.hide()
 	bg_music.play()
 	uncover_screen()
 
@@ -70,15 +76,6 @@ func uncover_screen() -> void:
 	
 	await get_tree().create_timer(2.0).timeout
 	cover.hide()
-=======
-@onready var my_label = $Text/Text_to_appear/Label
-@onready var tutorial = $Text/Tutorial/Text
-@onready var tutorial_2 = $Text/Tutorial_2/Text
-
-func _ready():
-	my_label.hide()
-	tutorial.hide()
-	tutorial_2.hide()
 
 
 func _on_text_to_appear_body_exited(body: CharacterBody2D) -> void:
@@ -98,4 +95,3 @@ func _on_tutorial_2_body_entered(body: CharacterBody2D) -> void:
 
 func _on_tutorial_2_body_exited(body: CharacterBody2D) -> void:
 	tutorial_2.visible = false
->>>>>>> efc6d6ad4094db87e9b966487612030956aea6a4
