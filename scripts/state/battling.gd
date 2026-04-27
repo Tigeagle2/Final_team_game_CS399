@@ -6,3 +6,4 @@ func update(_delta: float) -> void:
 
 func enter() -> void:
 	player.velocity = Vector2(0, 0)
+	sprites.play("idle-down")

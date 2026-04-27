@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var enemy_1_button: Button
+@export var enemy_2_button: Button
+@export var enemy_3_button: Button
+
 var all_battlers: Array[Battler] = []
 @export var turn_resolver: Node
 ## Sends the info to the controller:
@@ -136,3 +140,13 @@ func _on_target_button_enemy_3_pressed() -> void:
 	target_selection()
 func _on_turn_finished():
 	change_current_tab()
+
+func set_button_name(enemy_number: int, new_name: String) -> void:
+	if enemy_number == 1:
+		enemy_1_button.text = "Enemy " + new_name
+	elif enemy_number == 2:
+		enemy_2_button.text = "Enemy " + new_name
+	elif enemy_number == 3:
+		enemy_3_button.text = "Enemy " + new_name
+	else:
+		print("error")

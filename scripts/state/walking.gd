@@ -17,23 +17,28 @@ func physics_update(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("KEY_A", "KEY_D", "KEY_W", "KEY_S")
 	
 	if direction:
-		var switched: bool = false
-		player.velocity = direction * player.movement_speed
-		
-		if Input.is_action_pressed("SHIFT"):
-			player.velocity *= sprint_multiplier
-			sprites.speed_scale *= sprint_multiplier
+		if randi_range(1, 250) == 250:
+			player.in_battle = true
+			emit("battling")
+			get_owner().get_parent().trigger_battle()
 		else:
-			sprites.speed_scale = 1
-		
-		if player.facing.x != direction.x:
-			player.facing.x = direction.x
-			switched = true
-		if player.facing.y != direction.y:
-			player.facing.y = direction.y
-			switched = true
-		if switched:
-			switched_direction.emit()
+			var switched: bool = false
+			player.velocity = direction * player.movement_speed
+			
+			if Input.is_action_pressed("SHIFT"):
+				player.velocity *= sprint_multiplier
+				sprites.speed_scale *= sprint_multiplier
+			else:
+				sprites.speed_scale = 1
+			
+			if player.facing.x != direction.x:
+				player.facing.x = direction.x
+				switched = true
+			if player.facing.y != direction.y:
+				player.facing.y = direction.y
+				switched = true
+			if switched:
+				switched_direction.emit()
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.movement_speed/5)
 		player.velocity.y = move_toward(player.velocity.y, 0, player.movement_speed/5)

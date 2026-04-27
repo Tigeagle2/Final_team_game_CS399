@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://hlns22a5nuow"]
+[gd_scene load_steps=23 format=3 uid="uid://hlns22a5nuow"]
 
+[ext_resource type="Script" uid="uid://dqckcohx8uchv" path="res://scripts/battle/mari-battle.gd" id="1_avtag"]
 [ext_resource type="Texture2D" uid="uid://cnbigvg3wnv2y" path="res://assets/Sprites/Mari.png" id="1_sg3ox"]
 
 [sub_resource type="Gradient" id="Gradient_sg3ox"]
@@ -10,6 +11,38 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_sg3ox")
 fill = 1
 fill_from = Vector2(0.4906542, 0.5046729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ho8"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yudds"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obb0c"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnf6f"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kor3j"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(277, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h5vr"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(323, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohby5"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(369, 47, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yrof"]
+atlas = ExtResource("1_sg3ox")
+region = Rect2(415, 47, 45, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avtag"]
 atlas = ExtResource("1_sg3ox")
@@ -47,40 +80,37 @@ region = Rect2(507, 47, 45, 45)
 atlas = ExtResource("1_sg3ox")
 region = Rect2(553, 47, 45, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53ho8"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(277, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yudds"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(323, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_obb0c"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(277, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnf6f"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(323, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kor3j"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(277, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1h5vr"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(323, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohby5"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(369, 47, 45, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2yrof"]
-atlas = ExtResource("1_sg3ox")
-region = Rect2(415, 47, 45, 45)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_4q3qi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ho8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yudds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obb0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnf6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kor3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h5vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohby5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yrof")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_avtag")
@@ -117,45 +147,18 @@ animations = [{
 "loop": false,
 "name": &"recover",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53ho8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yudds")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_obb0c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pnf6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kor3j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1h5vr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohby5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2yrof")
-}],
-"loop": false,
-"name": &"shoot",
-"speed": 5.0
 }]
 
 [node name="hero_infight" type="Node2D"]
+script = ExtResource("1_avtag")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.9999998, 0.8053361, 0.63593, 1)
 texture = SubResource("GradientTexture2D_avtag")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4q3qi")
-animation = &"idle"
-frame = 4
-frame_progress = 0.127203
+animation = &"attack"
+flip_h = true
+
+[connection signal="animation_finished" from="Sprites" to="." method="_on_animation_finished"]

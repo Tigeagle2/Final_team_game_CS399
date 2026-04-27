@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddvxwvdtku1rb"]
+[gd_scene load_steps=11 format=4 uid="uid://ddvxwvdtku1rb"]
 
 [ext_resource type="Texture2D" uid="uid://ctqaky2m3010b" path="res://TileMap/streetstilesetDEMO.png" id="1_h8yc2"]
+[ext_resource type="Script" uid="uid://d08dikk405gf5" path="res://scenes/main_level.gd" id="1_qdtma"]
 [ext_resource type="PackedScene" uid="uid://cupd4ojvbm67w" path="res://scenes/Player/Max.tscn" id="2_lnng2"]
 [ext_resource type="Texture2D" uid="uid://b6dijkvqsocuo" path="res://2d_lights_and_shadows_neutral_point_light.png" id="4_1215w"]
 [ext_resource type="PackedScene" uid="uid://dwx43gepc8iv4" path="res://DoorArea.tscn" id="4_lnng2"]
+[ext_resource type="PackedScene" uid="uid://4rhtgrlhv5as" path="res://scenes/battle_menu.tscn" id="6_ifdn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71nk4"]
 texture = ExtResource("1_h8yc2")
@@ -3107,8 +3109,13 @@ texture = ExtResource("1_h8yc2")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_h8yc2")
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("battle_menu", "cover", "player", "bg_music")]
 y_sort_enabled = true
+script = ExtResource("1_qdtma")
+battle_menu = NodePath("CanvasLayer/BattleMenu")
+cover = NodePath("CanvasLayer/Cover")
+player = NodePath("Max")
+bg_music = NodePath("Backgroud_Music")
 
 [node name="The_Sun" type="DirectionalLight2D" parent="."]
 position = Vector2(424, 233)
@@ -3149,3 +3156,14 @@ texture = ExtResource("4_1215w")
 
 [node name="Door_Area" parent="." instance=ExtResource("4_lnng2")]
 position = Vector2(161, 197)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cover" type="ColorRect" parent="CanvasLayer"]
+z_index = 6
+offset_right = 480.0
+offset_bottom = 320.0
+color = Color(0, 0, 0, 1)
+
+[node name="BattleMenu" parent="CanvasLayer" instance=ExtResource("6_ifdn3")]
+visible = false

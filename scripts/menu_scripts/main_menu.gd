@@ -7,11 +7,12 @@ extends TransitMenu
 func _ready() -> void:
 	trigger_if_default()
 	enter()
+	cheats.battles_won = 0
+	cheats.relative_pos = Vector2(0, 256)
 
 func _on_start_pressed() -> void:
 	click_sound.play()
-	release()
-	SaveMenu.summon()
+	transit_scene()
 
 func _on_options_pressed() -> void:
 	click_sound.play()
