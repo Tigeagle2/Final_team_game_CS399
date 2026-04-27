@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://bx1gwpj5bm0s6"]
+
+[ext_resource type="Script" uid="uid://b2eks6680t421" path="res://battle_system/move scripts/attack.gd" id="1_y6oel"]
+
+[resource]
+script = ExtResource("1_y6oel")
+base_damage = 25.0
+move_name = "Slash"
+energy_cost = 25
+metadata/_custom_type_script = "uid://b2eks6680t421"

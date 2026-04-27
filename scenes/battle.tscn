@@ -1,24 +1,27 @@
-[gd_scene load_steps=27 format=4 uid="uid://cofoqc5v6bsab"]
+[gd_scene load_steps=30 format=4 uid="uid://cofoqc5v6bsab"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3sdwffdgfm" path="res://scenes/ui_scenes/fight_screen_ui.tscn" id="1_dn72j"]
-[ext_resource type="Script" uid="uid://d0mnwhf0qagvr" path="res://battle.gd" id="1_lpir7"]
+[ext_resource type="Script" path="res://battle.gd" id="1_lpir7"]
 [ext_resource type="Script" uid="uid://b01l4oduhqk8g" path="res://battle_system/turn_resolver.gd" id="2_22uqi"]
-[ext_resource type="Texture2D" uid="uid://clb6ew8arc6s3" path="res://TileMap/streetTilesBackup.png" id="2_djc8l"]
+[ext_resource type="Texture2D" uid="uid://dnw3oquyp85kd" path="res://TileMap/streetTilesBackup.png" id="2_djc8l"]
 [ext_resource type="PackedScene" uid="uid://bt5gfmvckcd8n" path="res://scenes/hero_infight_scenes/hero_infight_1.tscn" id="2_th188"]
 [ext_resource type="PackedScene" uid="uid://cde8qxocuq6p" path="res://scenes/hero_infight_scenes/hero_infight_2.tscn" id="3_a12nh"]
 [ext_resource type="Script" uid="uid://b2tkn4g3ycy84" path="res://battle_system/team_controllers/player_controller.gd" id="3_vceff"]
 [ext_resource type="Script" uid="uid://dyu8a5asjyy4h" path="res://battle_system/battler.gd" id="4_4k1nj"]
 [ext_resource type="Script" uid="uid://cycclnep1466q" path="res://battle_system/team_controllers/enemy_controller.gd" id="4_ekamt"]
 [ext_resource type="PackedScene" uid="uid://hlns22a5nuow" path="res://scenes/hero_infight_scenes/hero_infight_3.tscn" id="4_lpir7"]
-[ext_resource type="Resource" uid="uid://dvbhgtpinhj2p" path="res://Resource Files/temp_move_1.tres" id="6_66ngm"]
-[ext_resource type="Resource" uid="uid://chhwlh7ntnxqb" path="res://Resource Files/temp_move_2.tres" id="7_03edq"]
 [ext_resource type="Script" uid="uid://cuyg0w6vqilaa" path="res://battle_system/move.gd" id="7_f4pi3"]
-[ext_resource type="Resource" uid="uid://bsoaps4spaalm" path="res://Resource Files/temp_move_3.tres" id="8_22uqi"]
-[ext_resource type="Resource" uid="uid://day8nf58cjys6" path="res://Resource Files/temp_move_4.tres" id="9_6ni85"]
 [ext_resource type="Resource" uid="uid://dqx2scgu1wvjl" path="res://battle_system/moves/attack_move.tres" id="9_ekamt"]
 [ext_resource type="PackedScene" uid="uid://dfxjl4e74c0se" path="res://scenes/ui_scenes/health_bar.tscn" id="10_03edq"]
+[ext_resource type="Resource" uid="uid://ch7yj76imhyxh" path="res://battle_system/moves/defend_move.tres" id="11_fpf3k"]
+[ext_resource type="Resource" uid="uid://bx1gwpj5bm0s6" path="res://battle_system/moves/slash.tres" id="12_bi5l8"]
+[ext_resource type="Resource" uid="uid://cmvxu7gvb7f6k" path="res://battle_system/moves/smack.tres" id="13_bi5l8"]
+[ext_resource type="Resource" uid="uid://c8frrjkgsoi77" path="res://battle_system/moves/stab.tres" id="14_dd63g"]
+[ext_resource type="Resource" uid="uid://lq7qn4183o08" path="res://battle_system/moves/annihilate.tres" id="15_fpf3k"]
 [ext_resource type="FontFile" uid="uid://dnixln2jopcci" path="res://VixalFont3.ttf" id="18_h4dll"]
-[ext_resource type="Script" uid="uid://iqg3c1qtqmxy" path="res://scripts/bridge.gd" id="18_p0caf"]
+[ext_resource type="Script" path="res://scripts/bridge.gd" id="18_p0caf"]
+[ext_resource type="Resource" uid="uid://dxmxxim286koa" path="res://battle_system/moves/heal_move.tres" id="19_jt4d8"]
+[ext_resource type="Resource" uid="uid://be6cy2ortqmcg" path="res://battle_system/moves/group_heal_move.tres" id="20_kl6ie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0caf"]
 texture = ExtResource("2_djc8l")
@@ -356,9 +359,8 @@ script = ExtResource("4_4k1nj")
 max_health = 125.0
 max_energy = 100.0
 speed = 2.0
-strength = 1.5
 defense = 1.5
-move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
+move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("11_fpf3k"), ExtResource("12_bi5l8"), ExtResource("13_bi5l8"), ExtResource("14_dd63g"), ExtResource("15_fpf3k")])
 type = "attacker"
 battler_name = "Max"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
@@ -387,8 +389,7 @@ script = ExtResource("4_4k1nj")
 max_health = 85.0
 max_energy = 100.0
 speed = 3.0
-strength = 1.5
-move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("6_66ngm"), ExtResource("7_03edq"), ExtResource("8_22uqi"), ExtResource("9_6ni85")])
+move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("11_fpf3k"), ExtResource("14_dd63g"), ExtResource("12_bi5l8"), ExtResource("13_bi5l8"), ExtResource("15_fpf3k")])
 type = "healer"
 battler_name = "Malachi"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"
@@ -417,9 +418,8 @@ script = ExtResource("4_4k1nj")
 max_health = 125.0
 max_energy = 100.0
 speed = 3.0
-strength = 1.2
 defense = 1.5
-move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("7_03edq"), ExtResource("7_03edq"), ExtResource("9_6ni85"), ExtResource("6_66ngm"), ExtResource("8_22uqi")])
+move_array = Array[ExtResource("7_f4pi3")]([ExtResource("9_ekamt"), ExtResource("11_fpf3k"), ExtResource("19_jt4d8"), ExtResource("20_kl6ie"), ExtResource("14_dd63g"), ExtResource("12_bi5l8")])
 type = "attacker"
 battler_name = "Mari"
 metadata/_custom_type_script = "uid://dyu8a5asjyy4h"

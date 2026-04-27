@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_t2kys")
-move_name = "None"
+move_name = "Non"
 energy_cost = 90
 metadata/_custom_type_script = "uid://cuyg0w6vqilaa"

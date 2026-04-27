@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://cmvxu7gvb7f6k"]
+
+[ext_resource type="Script" uid="uid://b2eks6680t421" path="res://battle_system/move scripts/attack.gd" id="1_8baku"]
+
+[resource]
+script = ExtResource("1_8baku")
+base_damage = 30.0
+move_name = "Smack"
+energy_cost = 30
+metadata/_custom_type_script = "uid://b2eks6680t421"

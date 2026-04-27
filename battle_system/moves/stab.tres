@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://c8frrjkgsoi77"]
+
+[ext_resource type="Script" uid="uid://b2eks6680t421" path="res://battle_system/move scripts/attack.gd" id="1_fm3b5"]
+
+[resource]
+script = ExtResource("1_fm3b5")
+base_damage = 15.0
+move_name = "stab"
+energy_cost = 10
+speed_mult = 10.0
+metadata/_custom_type_script = "uid://b2eks6680t421"
