@@ -82,7 +82,7 @@ func roll_stats() -> void:
 	strength = 1.0
 	defense = 1.0
 	
-	max_health += randf_range(-50, 50)
+	max_health += randf_range(-25, 25)
 	speed += randf_range(-5, 5)
-	strength += randf_range(-1.5, 1.5)
-	defense += randf_range(-1.5, 1.5)
+	strength += randf_range(-0.2, 1.5)
+	defense += randf_range(-0.2, 1.5)

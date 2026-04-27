@@ -64,12 +64,6 @@ func change_current_tab():
 	move_index_stored = null
 	hero_num_stored = null
 	target = null
-	
-
-#temp function. to be replaced once the battle system gets implimented. will be replaced by code that forces a tab change at the end of a turn
-func _on_button_pressed() -> void:
-	change_current_tab()
-
 
 func _on_hero_ui_1_hero_move(index: int, hero_num: int) -> void:
 	move_index_stored = index
