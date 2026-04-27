@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clly8jd5x27nv"]
+
+[ext_resource type="PackedScene" uid="uid://bxvuhpjmucx5d" path="res://scenes/Player.tscn" id="1_4xv3l"]
+
+[node name="Player" instance=ExtResource("1_4xv3l")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
