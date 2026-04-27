@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_pu7mg")
 base_damage = 10.0
+<<<<<<< HEAD
 move_name = "Attack"
+=======
+>>>>>>> efc6d6ad4094db87e9b966487612030956aea6a4
 animation_name = &"attack"
 metadata/_custom_type_script = "uid://b2eks6680t421"

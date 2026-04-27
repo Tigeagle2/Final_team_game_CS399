@@ -21,9 +21,12 @@ script = ExtResource("1_v6fml")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_v6fml")
+<<<<<<< HEAD
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.9999998, 0.8053361, 0.63593, 1)
 texture = SubResource("GradientTexture2D_v6fml")
+=======
+>>>>>>> efc6d6ad4094db87e9b966487612030956aea6a4

@@ -23,6 +23,14 @@ func get_opposite_team_from_battler(battler: Battler) -> Array[Battler]:
 	
 	return turn_resolver.get_opposite_team_array(team_controller)
 
+func pause_scene():
+	var root := get_tree().current_scene
+	root.process_mode = Node.PROCESS_MODE_DISABLED
+
+func unpause_scene():
+	var root := get_tree().current_scene
+	root.process_mode = Node.PROCESS_MODE_ALWAYS
+
 func start_combat():
 	var root := get_tree().current_scene
 	

@@ -14,4 +14,3 @@ script = ExtResource("1_vuel0")
 shape = SubResource("CircleShape2D_prhem")
 
 [connection signal="body_entered" from="Door_Area" to="Door_Area" method="_on_body_entered"]
-[connection signal="body_exited" from="Door_Area" to="Door_Area" method="_on_body_exited"]
