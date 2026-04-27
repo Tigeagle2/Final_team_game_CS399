@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cupd4ojvbm67w"]
 
 [ext_resource type="PackedScene" uid="uid://bxvuhpjmucx5d" path="res://scenes/Player.tscn" id="1_2y0xi"]
-[ext_resource type="Texture2D" uid="uid://db87jsdlohvyt" path="res://assets/Sprites/Max.png" id="2_vopgi"]
+[ext_resource type="Texture2D" uid="uid://bragctaym8gkw" path="res://assets/Sprites/Max.png" id="2_vopgi"]
 [ext_resource type="Script" uid="uid://cwo2gpyjusfm3" path="res://scripts/state/animation_state.gd" id="3_lo7s1"]
 [ext_resource type="Script" uid="uid://3l3mutu4gyag" path="res://scripts/state/idle.gd" id="4_6kiph"]
 [ext_resource type="Script" uid="uid://7e6me7h8obtr" path="res://scripts/state/walking.gd" id="5_xudud"]
@@ -207,6 +207,12 @@ camera = NodePath("Camera2D")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, 8.5)
+
+[node name="Camera2D" parent="." index="1"]
+limit_left = -350
+limit_top = -10
+limit_right = 1300
+limit_bottom = 800
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_rombq")
