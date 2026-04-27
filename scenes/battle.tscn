@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dfxjl4e74c0se" path="res://scenes/ui_scenes/health_bar.tscn" id="10_03edq"]
 
 [node name="battle" type="Node2D"]
+z_index = 99
 script = ExtResource("1_lpir7")
 
 [node name="TurnResolver" type="Node" parent="." node_paths=PackedStringArray("teams_array")]
