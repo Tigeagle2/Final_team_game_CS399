@@ -12,6 +12,7 @@ class_name Move extends Resource
 @export var all_members: bool = false
 
 func resolve_move(owner: Battler, targets: Array[Battler]):
+	owner.energy -= owner.selected_move.energy_cost
 	await owner.play_animation(animation_name)
 	await apply_change(owner, targets)
 	for target in targets:
