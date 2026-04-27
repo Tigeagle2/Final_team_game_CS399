@@ -2,9 +2,9 @@ class_name Battler extends Node2D
 
 @export_category("STATS")
 @export var max_health: float
-var health: float 
+var health: float = 100
 @export var max_energy: float
-var energy: float = 50
+var energy: float = 100
 @export var speed: float
 @export var strength: float = 1.0
 @export var defense: float = 1.0
@@ -27,6 +27,8 @@ func select_move(index: int, targets: Array[Battler]):
 	selected_targets = targets
 
 func play_animation(animation_name: StringName):
+	if !%AnimatedSprite2D:
+		return
 	# play an animation for the battler here
 	var sprite: AnimatedSprite2D  = %AnimatedSprite2D
 
@@ -42,6 +44,7 @@ func damage(value: float):
 		health -= value/defense
 		print("Damaged battler by ", value/defense)
 	health_updated.emit()
+	print(name, " now has ", health, " hp")
 
 func heal(value: float):
 	health += value
